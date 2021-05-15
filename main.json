@@ -1,0 +1,80 @@
+[
+    {
+        "model": "main.city",
+        "pk": 1,
+        "fields": {
+            "title": "Москва"
+        }
+    },
+    {
+        "model": "main.city",
+        "pk": 2,
+        "fields": {
+            "title": "Санкт-Петербург"
+        }
+    },
+    {
+        "model": "main.city",
+        "pk": 3,
+        "fields": {
+            "title": "Абхазия"
+        }
+    },
+    {
+        "model": "main.city",
+        "pk": 4,
+        "fields": {
+            "title": "Ростов"
+        }
+    },
+    {
+        "model": "main.rsobjects",
+        "pk": 1,
+        "fields": {
+            "title": "Rahat Residence",
+            "image": "dom/dom1.jpg",
+            "city": 4,
+            "rent_sale": "1",
+            "status": "1",
+            "dom_type": "1",
+            "floors": "2 / 11",
+            "rooms": 3,
+            "areas": 40,
+            "height_ceiling": 2,
+            "price": "2000.00",
+            "region": "Первомайский",
+            "year_built": "2010-05-09",
+            "distance_sea": "20 шагов",
+            "distance_track": "50 шагов",
+            "ownership": "Карабаев Нурсултан",
+            "description": "Отличное место для отдыха и работы",
+            "vip": "2",
+            "slug": "rahat-residence"
+        }
+    },
+    {
+        "model": "main.rsobjects",
+        "pk": 2,
+        "fields": {
+            "title": "MarSal",
+            "image": "dom/dom2.jpg",
+            "city": 1,
+            "rent_sale": "2",
+            "status": "1",
+            "dom_type": "3",
+            "floors": "3/5",
+            "rooms": 7,
+            "areas": 80,
+            "height_ceiling": 3,
+            "price": "4000000.00",
+            "region": "Кара-Кулский",
+            "year_built": "2009-05-09",
+            "distance_sea": "2 км",
+            "distance_track": "500 метров",
+            "ownership": "Карабаев Тимур",
+            "description": "Отлично покупать стоит",
+            "vip": "2",
+            "slug": "marsal"
+        }
+    }
+]
