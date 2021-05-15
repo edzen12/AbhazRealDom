@@ -1,4 +1,4 @@
-Сделай дамп БД
+Сделай load БД
 
 python manage.py loaddata main.json
 
