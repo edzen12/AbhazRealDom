@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <!-- Обязательные метатеги -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/mobile_version.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+        <!--     <script src="js/jquery.bubble.text.js"></script> -->
+        <link href="jQueryForm/dist/jquery.formstyler.css" rel="stylesheet" />
+        <link href="jQueryForm/dist/jquery.formstyler.theme.css" rel="stylesheet" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="jQueryForm/dist/jquery.formstyler.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>
+        <title>Привет мир!</title>
+    </head>
+    <body>
+        <header class="header">
+            <section class="menu-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <ul>
+                                <li>contact@example.com</li>
+                                <li>(123) 456 78 90</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-7">
+                            <nav>
+                                <ul>
+                                    <li><a href="">О компании</a></li>
+                                    <li><a href="">Отзывы о нас</a></li>
+                                    <li><a href="">Контакты</a></li>
+                                    <li><a href="">Услуги</a></li>
+                                    <li><a href="" class="red">ХОЧУ ПРОДАТЬ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="menu-bottom">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="#">
+                        <img src="img/logo.png" style="width: 253px;">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="active">
+                                    <a class="" href="#">Главная</a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="#">Дома</a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="objects.html">Квартиры</a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="#">Участки</a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="#">Коммерческая недвижимость</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </section>
+        </header>
+        <section class="section-video">
+            <div class="section-video__content">
+                <div class="section-video__content-text">
+                    Недвижимость в <span>Абхазии</span>
+                    <br>
+                    Мечта из надежных рук
+                </div>
+                <a href="" class="btn__class btn__class-video">посмотреть объекты</a>
+            </div>
+            <div class="video">
+                <video autoplay muted loop id="myVideo">
+                    <source src="video/background.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+        <section class="section-filter">
+            <div class="container">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 section-filter__form-div-top">
+                            <span>тип недвижимости</span>
+                            <select>
+                                <option>Не выбрано</option>
+                                <option>Квартиры</option>
+                                <option>Новостройки</option>
+                                <option>Дома</option>
+                                <option>Земельные участки</option>
+                                <option>Коммерческая</option>
+                                <option>Инвестиционные проекты</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 section-filter__form-div-top">
+                            <span>район/город</span>
+                            <select>
+                                <option>По всей стране</option>
+                                <option>Сухум</option>
+                                <option>Гагра</option>
+                                <option>Новый Афон</option>
+                                <option>Гудаута</option>
+                                <option>Гал</option>
+                                <option>Очамчира</option>
+                                <option>Ткуарчал</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 section-filter__form-div-bottom">
+                            <span>цена (в рублях)</span>
+                            <!--  <select>
+                                <option>От</option>
+                                 </select> -->
+                            <input class="money jq-selectbox__select" type="" name="" placeholder="От">
+                            <input class="money jq-selectbox__select" type="" name="" placeholder="До">
+                        </div>
+                        <script type="text/javascript">
+                            jQuery('.money').mask('# ##0', {
+                            reverse: true,
+                            });
+                        </script>
+                        <div class="col-md-6 section-filter__form-div-bottom">
+                            <span>площадь (м²)</span>
+                            <input class="jq-selectbox__select" type="" name="" placeholder="От">
+                            <input class="jq-selectbox__select" type="" name="" placeholder="До">
+                        </div>
+                        <div class="col-md-12 text-end">
+                            <a href="" class="btn__class">поиск по фильтру</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </section>
+        <section class="objects">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="objects__content">
+                            <img src="img/img05.jpg">
+                            <div class="objects__content-info">
+                                <span class="objects__name">Сочи, Виноградная</span>
+                                <img class="objects__location-img" src="img/placeholder.svg">
+                                <span class="objects__location">
+                                Новый Сочи, Виноградная
+                                </span>
+                                <ul>
+                                    <li><img src="img/ruler.svg">52 м²</li>
+                                    <li><img src="img/double-bed.svg">3 комнаты</li>
+                                    <li><img src="img/stairs.svg">2 этаж</li>
+                                </ul>
+                                <a href="" class="btn__class">посмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="objects__content">
+                            <img src="img/img05.jpg">
+                            <div class="objects__content-info">
+                                <span class="objects__name">Сочи, Виноградная</span>
+                                <img class="objects__location-img" src="img/placeholder.svg">
+                                <span class="objects__location">
+                                Новый Сочи, Виноградная
+                                </span>
+                                <ul>
+                                    <li><img src="img/ruler.svg">52 м²</li>
+                                    <li><img src="img/double-bed.svg">3 комнаты</li>
+                                    <li><img src="img/stairs.svg">2 этаж</li>
+                                </ul>
+                                <a href="" class="btn__class">посмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="objects__content">
+                            <img src="img/img05.jpg">
+                            <div class="objects__content-info">
+                                <span class="objects__name">Сочи, Виноградная</span>
+                                <img class="objects__location-img" src="img/placeholder.svg">
+                                <span class="objects__location">
+                                Новый Сочи, Виноградная
+                                </span>
+                                <ul>
+                                    <li><img src="img/ruler.svg">52 м²</li>
+                                    <li><img src="img/double-bed.svg">3 комнаты</li>
+                                    <li><img src="img/stairs.svg">2 этаж</li>
+                                </ul>
+                                <a href="" class="btn__class">посмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="objects__content">
+                            <img src="img/img05.jpg">
+                            <div class="objects__content-info">
+                                <span class="objects__name">Сочи, Виноградная</span>
+                                <img class="objects__location-img" src="img/placeholder.svg">
+                                <span class="objects__location">
+                                Новый Сочи, Виноградная
+                                </span>
+                                <ul>
+                                    <li><img src="img/ruler.svg">52 м²</li>
+                                    <li><img src="img/double-bed.svg">3 комнаты</li>
+                                    <li><img src="img/stairs.svg">2 этаж</li>
+                                </ul>
+                                <a href="" class="btn__class">посмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  <footer>
+            <div class="container">
+                <ul>
+                <li><img src="img/instagram.png"></li>
+                <li><img src="img/facebook.png"></li>
+                <li><img src="img/whatsapp.png"></li>
+              </ul>
+              <div class="row">
+                <div class="col-md-3">Колонка 1</div>
+                <div class="col-md-3">Колонка 2</div>
+                <div class="col-md-3">Колонка 3</div>
+                <div class="col-md-3">Колонка 4</div>
+              </div>
+            </div> -->
+        <!--     </footer> -->
+        <footer>
+            <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-md-3">
+                        <h3>About us</h3>
+                        <p>
+                          We are a young company always looking for new and creative ideas to help you with our products in your everyday work.
+                        </p>
+                        <p>2021 © Все права защищены. Разработка: Басария Нарт</p>
+
+                            </div> -->
+                    <div class="col-md-3">
+                        <h3>Контакты</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Локация: г. Сухум</p>
+                        <p><i class="fas fa-phone"></i> Телефон: +7 (940) 000-00-00</p>
+                        <p><i class="fas fa-envelope"></i> Почта: hello@domain.com</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>Навигация</h3>
+                        <p><a href="#">Главная</a></p>
+                        <p><a href="#">Дома</a></p>
+                        <p><a href="#">Квартиры</a></p>
+                        <p><a href="#">Участки</a></p>
+                        <p><a href="#">Коммерческая недвижимость</a></p>
+                    </div>
+                    <div class="col-md-6">
+                        <div style="position:relative;overflow:hidden;"><iframe src="https://yandex.ru/map-widget/v1/-/CCUUFYSQKB" width="100%" height="250" frameborder="1" allowfullscreen="true" style="position:relative;" ></iframe></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            2021 © «ЮГ недвижимость Абхазия». Все права защищены
+                            <br>
+                            Разработка сайта: Басария Нарт
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col footer-social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript">
+            $('select').styler();
+        </script>
+        <!-- Вариант 1: Bootstrap в связке с Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    </body>
+</html>

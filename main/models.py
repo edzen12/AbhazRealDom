@@ -1,46 +1,5 @@
 from django.db import models
-
-
-# Аренда или Продажа
-RENT_SALE = [
-    ('1', 'Аренда'),
-    ('2', 'Продажа'),
-]
-
-# Аренда или Продажа
-OBJECTS_CHOICES = [
-    ('1', 'Дома'),
-    ('2', 'Квартиры'),
-    ('3', 'Участки'),
-    ('4', 'Коммерческая недвижимость'),
-]
-
-# Состояние
-STATUS = [
-    ('1', 'С ремонтом'),
-    ('2', 'Без ремонта '),
-]
-
-# тип материала
-MATERIAL_TYPE = [
-    ('1', 'Блочный'),
-    ('2', 'Кирпичный'),
-]
-
-# тип дома
-DOM_TYPE = [
-    ('1', 'Апартаменты'),
-    ('2', 'Хрущевка'),
-    ('3', 'Сталинка'),
-    ('4', 'Новостройка'),
-    ('5', 'Чешский проект'),
-]
-
-# VIP
-VIP = [
-    ('1', 'Да'),
-    ('2', 'Нет'),
-]
+from .choice import *
 
 
 # Город
@@ -151,5 +110,26 @@ class ImageShots(models.Model):
     class Meta:
         verbose_name = "фотка"
         verbose_name_plural = "Фотки"
+
+
+class Reviews(models.Model):
+    nikname = models.CharField(verbose_name='Никнейм', max_length=255)
+    desc = models.TextField(
+        verbose_name='Описание', blank=True, null=True
+    )
+    image = models.ImageField(
+        verbose_name='Фото', upload_to="reviews/", blank=True, null=True
+    )
+    video = models.FileField(
+        verbose_name='Видео', blank=True, null=True, upload_to='video/'
+    )
+    date = models.DateField(verbose_name='Дата')
+
+    def __str__(self):
+        return self.nikname
+
+    class Meta:
+        verbose_name = 'отзыв'
+        verbose_name_plural = 'Отзывы'
 
 

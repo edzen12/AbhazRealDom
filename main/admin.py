@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import City, RSObjects, ImageShots
+from .models import City, RSObjects, ImageShots, Reviews
 
 
 class ImageShotsInline(admin.TabularInline):
@@ -30,6 +30,7 @@ class RSObjectsAdmin(admin.ModelAdmin):
 
 admin.site.register(RSObjects, RSObjectsAdmin)
 admin.site.register(City)
+admin.site.register(Reviews)
 
 
 @admin.register(ImageShots)
