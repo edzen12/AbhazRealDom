@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 from .choice import *
 
 
@@ -55,25 +56,15 @@ class PostRentSale(models.Model):
         max_length=255, verbose_name="Этаж / этажность", 
         blank=True, null=True, help_text="пример: 3 / 5"
     )
-    rooms = models.IntegerField(
-        verbose_name="Кол-во комнат", blank=True, null=True,
-    )
-    areas = models.IntegerField(
-        verbose_name="Площадь м²", blank=True, null=True,
-    )
-    height_ceiling = models.IntegerField(
-        verbose_name="Высота потолков м²", blank=True, null=True,
-    )
+    rooms = models.IntegerField(verbose_name="Кол-во комнат", blank=True, null=True)
+    areas = models.IntegerField(verbose_name="Площадь м²", blank=True, null=True)
+    height_ceiling = models.IntegerField(verbose_name="Высота потолков м²", blank=True, null=True)
     price = models.DecimalField(
         verbose_name="Цена в рублях", max_digits=10, decimal_places=2, 
         blank=True, null=True
     )
-    region = models.CharField(
-        max_length=255, verbose_name="Район", blank=True, null=True,
-    )
-    year_built = models.DateField(
-        verbose_name="Год постройки", blank=True, null=True,
-    )
+    region = models.CharField(max_length=255, verbose_name="Район", blank=True, null=True)
+    year_built = models.DateField(verbose_name="Год постройки", blank=True, null=True)
     distance_sea = models.CharField(
         verbose_name='Расстояние до море', max_length=255,
         blank=True, null=True
@@ -86,9 +77,7 @@ class PostRentSale(models.Model):
         verbose_name='Право собственности', max_length=50, 
         blank=True, null=True
     )
-    description = models.TextField(
-        verbose_name='Описание', blank=True, null=True
-    )
+    description = models.TextField(verbose_name='Описание', blank=True, null=True)
     vip = models.CharField(
         verbose_name="VIP", choices=VIP, max_length=255, 
         blank=True, null=True, default=2
@@ -97,10 +86,14 @@ class PostRentSale(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('postrentsale_detail', kwargs={'slug': self.slug})
 
     class Meta:
         verbose_name = "Тип недвижимости"
         verbose_name_plural = "Тип недвижимости"
+        ordering = ['-id']
 
 
 class ImageShots(models.Model):
@@ -124,9 +117,13 @@ class Reviews(models.Model):
         verbose_name='Видео', blank=True, null=True, upload_to='video/'
     )
     date = models.DateField(verbose_name='Дата')
+    slug = models.SlugField(unique=True, max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.nikname
+
+    def get_absolute_url(self):
+        return reverse('reviews_detail', kwargs={'slug': self.slug})
 
     class Meta:
         verbose_name = 'отзыв'

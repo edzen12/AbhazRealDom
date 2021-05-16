@@ -76,19 +76,17 @@ def index(request):
     return render(request, 'index.html', locals())
 
 
-
-
 def reviews(request):
     reviews = Reviews.objects.all()
     context = {
         'reviews': reviews,
     }
-    return render(request, 'reviews.html', context)
+    return render(request, 'pages/reviews.html', context)
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'pages/about.html')
 
 
 def projects(request):
-    return render(request, 'projects.html')
+    return render(request, 'pages/projects.html')
