@@ -20,6 +20,11 @@ def index(request):
     filter_area_second = request.GET.get('area_second')
 
     if 'search' in request.GET:
+        city = City.objects.all()
+        rent_sale = RentSale.objects.all()
+        postrentsale = PostRentSale.objects.all()
+        type_property = TypeProperty.objects.all()
+    
         if filter_city == 'Не выбрано':
             filter_city = False
 

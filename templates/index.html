@@ -20,40 +20,27 @@
 <section class="section-filter">
     <div class="container">
         <form method="GET" action="{% url 'index' %}">
-            {% csrf_token %}
             <!-- row start -->
             <div class="row">
                 <div class="col-md-4 section-filter__form-div-top">
                     <span>аренда/продажа</span>
-                    <select name='rent_sale' class="jq-selectbox__select">
+                    <select id="select-box1" name='rent_sale' class="select_values jq-selectbox__select">
                         <option>Не выбрано</option>
-                        
-                            {% for el in rent_sale %}
-                            <option value="{{ el.id }}">{{ el.title }}</option>
-                            {% endfor %} 
-                       
+                       {% include 'include/arenda.html' %}
                     </select>
                 </div>
                 <div class="col-md-4 section-filter__form-div-top">
                     <span>район/город</span>
-                    <select name='city' class="jq-selectbox__select">
+                    <select id="select-box2"  name='city' class="jq-selectbox__select">
                         <option>Не выбрано</option>
-                        
-                            {% for el in city %}
-                            <option value="{{ el.id }}">{{ el.title }}</option>
-                            {% endfor %} 
-                       
+                       {% include 'include/city.html' %}
                     </select>
                 </div>
                 <div class="col-md-4 section-filter__form-div-top">
                     <span>тип недвижимости</span>
-                    <select name='type_property' class="jq-selectbox__select">
+                    <select id="select-box3"  name='type_property' class="jq-selectbox__select">
                         <option>Не выбрано</option>
-                        
-                            {% for el in type_property %}
-                            <option value="{{ el.id }}">{{ el.title }}</option>
-                            {% endfor %}
-                        
+                        {% include 'include/type.html' %}
                     </select>
                 </div>
                 <div class="col-md-6 section-filter__form-div-bottom">
@@ -67,7 +54,8 @@
                     <input class="jq-selectbox__select" type="text" name="area_second" placeholder="До">
                 </div>
                 <div class="col-md-12 text-end">
-                    <button name="search"  type="submit" class="btn__class mt-2">поиск по фильтру</button>
+                    <button onChange="window.location.href=this.value"  type="submit" name='search'
+                     class="search-button btn__class mt-2">поиск по фильтру</button>
                 </div>
             </div>
             <!-- row end -->
@@ -77,7 +65,7 @@
 
 <!-- Вывод после фильтра START -->
 <section class="objects">
-    <div class="container">
+    <div id='container' class="container">
         <div class="row">
 
             <!-- цикл START -->
@@ -119,6 +107,8 @@
         </div>
     </div>
 </section>
+
+
 <!-- Вывод после фильтра END -->
 
 {% endblock content %}
