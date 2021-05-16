@@ -5,16 +5,34 @@
             <div class="row">
                 <div class="col-md-5">
                     <ul>
-                        <li>contact@example.com</li>
-                        <li>(123) 456 78 90</li>
+                        <li>
+                            <a href="mailto:contact@example.com" style="color: #fff; text-decoration: none;">
+                                <img src="https://icons-for-free.com/iconfiles/png/512/email+gmail+mail+message+service+icon-1320183404410750774.png" width="24px"> contact@example.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:(123) 456 78 90" style="color: #fff; text-decoration: none;">
+                                <img src="http://assets.stickpng.com/images/5a4525bd546ddca7e1fcbc83.png"  width="18px"> (123) 456 78 90
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-7">
                     <nav>
                         <ul>
-                            <li><a href="{% url 'about' %}">О компании</a></li>
-                            <li><a href="{% url 'reviews' %}">Отзывы о нас</a></li>
-                            <li><a href="tel:(123) 456 78 90" class="red">ХОЧУ ПРОДАТЬ</a></li>
+                            <li>
+                                <a href="{% url 'about' %}" 
+                                {% if request.get_full_path == '/about/' %}style="color:white;" {% endif %}>
+                                    О компании
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'reviews' %}" 
+                                {% if request.get_full_path == '/reviews/' %} style="color:white;" {% endif %}>
+                                    Отзывы о нас
+                                </a>
+                            </li>
+                            <li><a href="tel:+7 (940) 000-00-00" class="red">ХОЧУ ПРОДАТЬ</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -32,15 +50,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="active">
-                            <a class="" href="{% url 'index' %}">Главная</a>
+                        <li {% if request.get_full_path == '/' %} class="active" {% endif %} >
+                            <a href="{% url 'index' %}">
+                             Главная
+                            </a>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Аренда
+                                Аренда
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="active"><a class="dropdown-item" href="#">Дома</a></li>
+                                <li class="active">
+                                    <a class="dropdown-item" href="#">Дома</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -48,11 +70,13 @@
                                 Продажа
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="active"><a class="dropdown-item" href="#">Дома</a></li>
+                                <li class="active">
+                                    <a class="dropdown-item" href="#">Дома</a>
+                                </li>
                             </ul>
                         </li>
-                        <li>
-                            <a class="" href="{% url 'projects' %}">Проекты</a>
+                        <li {% if request.get_full_path == '/projects/' %} class="active" {% endif %}>
+                            <a  href="{% url 'projects' %}">Проекты</a>
                         </li>
                     </ul>
                 </div>

@@ -1,7 +1,10 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import City, PostRentSale, ImageShots, Reviews
+from .models import (
+    City, PostRentSale, ImageShots, 
+    Reviews, TypeProperty, RentSale
+    )
 
 
 class ImageShotsInline(admin.TabularInline):
@@ -29,8 +32,6 @@ class PostRentSaleAdmin(admin.ModelAdmin):
 
 
 admin.site.register(PostRentSale, PostRentSaleAdmin)
-admin.site.register(City)
-admin.site.register(Reviews)
 
 
 @admin.register(ImageShots)
@@ -42,4 +43,31 @@ class ImageShotsAdmin(admin.ModelAdmin):
         return mark_safe(f'<img src={obj.image.url} width="70" height="60"')
 
     get_image.short_description = "Изображение"
+
+
+class CityAdmin(admin.ModelAdmin):
+    list_display = ['title']
+
+admin.site.register(City, CityAdmin)
+
+
+class TypePropertyAdmin(admin.ModelAdmin):
+    list_display = ['title']
+
+admin.site.register(TypeProperty, TypePropertyAdmin)
+
+
+class RentSaleAdmin(admin.ModelAdmin):
+    list_display = ['title']
+
+admin.site.register(RentSale, RentSaleAdmin)
+
+
+class ReviewsAdmin(admin.ModelAdmin):
+    list_display = ['nikname', 'date', 'slug']
+    prepopulated_fields = {'slug': ('nikname',)}
+    save_on_top = True
+
+admin.site.register(Reviews, ReviewsAdmin)
+
 

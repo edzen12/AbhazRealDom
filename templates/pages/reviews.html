@@ -2,21 +2,26 @@
 {% load static %}
 
 {% block content %} 
-<section class="reviews">
+<section class="reviews mb-5 pb-5">
     <div class="container">
         <div class="row">
 
             {% for el in reviews %}
             <div class="col-md-3 col-lg-3 col-12 mt-5 mb-5">
-                <div class="card">
-                <a href="#">
+                <div class="card mt-5 mb-5">
+                <a href="{{el.get_absolute_url}}">
                     <ul>
-                        <li class="reviews__name">{{el.nikname}}</li>
-                        <li class="reviews__date">{{el.date}}</li>
+                        <li style="color: #f24d68; font-weight: bold; font-size: 16px; 
+                        font-family: initial; text-transform: capitalize;" class="reviews__name">{{el.nikname}}</li>
                     </ul>
-                    <img src="{{el.image.url}}" class="card-img-top" alt="">
+                    <img src="{{el.image.url}}" class="card-img-top" 
+                        style="height: 250px; object-fit: cover;">
                     <hr>
-                    <p>{{ el.desc|truncatewords_html:12 }}</p>
+                    <p>{{ el.desc|truncatewords_html:10 }}</p>
+                    <ul>
+                        <hr>
+                        <li class="reviews__date">дата: {{el.date}}</li>
+                    </ul>
                 </a>
                 </div>
             </div>

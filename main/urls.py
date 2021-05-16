@@ -3,7 +3,8 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from .views import (
-    index, reviews, about, projects
+    index, reviews, about, projects,
+    ReviewsDetailView, PostRentSaleDetailView
 )
 
 urlpatterns = [
@@ -11,6 +12,8 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('projects/', projects, name='projects'),
     path('reviews/', reviews, name='reviews'),
+    path('reviews/<slug:slug>/', ReviewsDetailView.as_view(), name="reviews_detail"),
+    path('postrentsale/<slug:slug>/', PostRentSaleDetailView.as_view(), name="postrentsale_detail"),
 ]
 
 if settings.DEBUG:

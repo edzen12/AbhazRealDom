@@ -18,6 +18,36 @@ class City(models.Model):
         verbose_name_plural = "Города"
 
 
+# Аренда/Продажа
+class RentSale(models.Model):
+    title = models.CharField(
+        max_length=7, verbose_name="Аренда/Продажа", 
+        blank=True, null=True
+    )
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = "аренда/продажа"
+        verbose_name_plural = "Аренда/Продажа"
+
+
+# тип недвижимости
+class TypeProperty(models.Model):
+    title = models.CharField(
+        max_length=7, verbose_name="тип недвижимости", 
+        blank=True, null=True
+    )
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = "тип недвижимости"
+        verbose_name_plural = "Тип недвижимости"
+
+
 # Все Посты по АРЕНДЕ и ПРОДАЖЕ
 class PostRentSale(models.Model):
 
@@ -31,14 +61,13 @@ class PostRentSale(models.Model):
         City, on_delete=models.CASCADE,  verbose_name="Город",
         null=True, blank=True
     )
-    rent_sale = models.CharField(
-        max_length=255, choices=RENT_SALE, 
-        verbose_name="Аренда/Продажа", blank=True, null=True,
+    rent_sale = models.ForeignKey(
+        RentSale, on_delete=models.CASCADE, verbose_name="Аренда/Продажа", 
+        blank=True, null=True
     )
-    type_property = models.CharField(
-        max_length=255, choices=OBJECTS_CHOICES,
-        verbose_name="Тип недвижимости", blank=True, null=True,
-        help_text="Например: Дома; Квартиры; Участки; Коммерческая недвижимость"
+    type_property = models.ForeignKey(
+        TypeProperty, on_delete=models.CASCADE, verbose_name="Тип недвижимости", 
+        blank=True, null=True
     )
     status = models.CharField(
         max_length=255, choices=STATUS, 
@@ -91,8 +120,8 @@ class PostRentSale(models.Model):
         return reverse('postrentsale_detail', kwargs={'slug': self.slug})
 
     class Meta:
-        verbose_name = "Тип недвижимости"
-        verbose_name_plural = "Тип недвижимости"
+        verbose_name = "объект"
+        verbose_name_plural = "Все объекты"
         ordering = ['-id']
 
 
