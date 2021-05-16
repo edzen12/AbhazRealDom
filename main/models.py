@@ -17,8 +17,8 @@ class City(models.Model):
         verbose_name_plural = "Города"
 
 
-# Все Объекты
-class RSObjects(models.Model):
+# Все Посты по АРЕНДЕ и ПРОДАЖЕ
+class PostRentSale(models.Model):
 
     title = models.CharField(
         max_length=255, verbose_name="Название", blank=True, null=True,
@@ -34,9 +34,9 @@ class RSObjects(models.Model):
         max_length=255, choices=RENT_SALE, 
         verbose_name="Аренда/Продажа", blank=True, null=True,
     )
-    rs_objects = models.CharField(
+    type_property = models.CharField(
         max_length=255, choices=OBJECTS_CHOICES,
-        verbose_name="Объекты", blank=True, null=True,
+        verbose_name="Тип недвижимости", blank=True, null=True,
         help_text="Например: Дома; Квартиры; Участки; Коммерческая недвижимость"
     )
     status = models.CharField(
@@ -99,13 +99,13 @@ class RSObjects(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "объект"
-        verbose_name_plural = "Объекты"
+        verbose_name = "Тип недвижимости"
+        verbose_name_plural = "Тип недвижимости"
 
 
 class ImageShots(models.Model):
     image = models.ImageField("Изображение", upload_to="image_shots/")
-    rs_objects = models.ForeignKey(RSObjects, verbose_name="Объекты", on_delete=models.CASCADE)
+    rs_objects = models.ForeignKey(PostRentSale, verbose_name="Объекты", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "фотка"

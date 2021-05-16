@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import City, RSObjects, ImageShots, Reviews
+from .models import City, PostRentSale, ImageShots, Reviews
 
 
 class ImageShotsInline(admin.TabularInline):
@@ -15,8 +15,8 @@ class ImageShotsInline(admin.TabularInline):
     get_image.short_description = "Изображение"
 
 
-class RSObjectsAdmin(admin.ModelAdmin):
-    list_display = ['title', 'city', 'rent_sale', 'status', 'rs_objects', 'areas', 'price', 'vip']
+class PostRentSaleAdmin(admin.ModelAdmin):
+    list_display = ['title', 'city', 'rent_sale', 'status', 'type_property', 'areas', 'price', 'vip']
     prepopulated_fields = {'slug': ('title',)}
     save_on_top = True
     readonly_fields = ("get_image",)
@@ -28,7 +28,7 @@ class RSObjectsAdmin(admin.ModelAdmin):
     get_image.short_description = "Изображение"
 
 
-admin.site.register(RSObjects, RSObjectsAdmin)
+admin.site.register(PostRentSale, PostRentSaleAdmin)
 admin.site.register(City)
 admin.site.register(Reviews)
 

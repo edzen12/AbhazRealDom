@@ -28,15 +28,17 @@
         }
     },
     {
-        "model": "main.rsobjects",
+        "model": "main.postrentsale",
         "pk": 1,
         "fields": {
             "title": "Rahat Residence",
             "image": "dom/dom1.jpg",
             "city": 4,
             "rent_sale": "1",
+            "type_property": "2",
             "status": "1",
             "dom_type": "1",
+            "material_type": "2",
             "floors": "2 / 11",
             "rooms": 3,
             "areas": 40,
@@ -53,15 +55,17 @@
         }
     },
     {
-        "model": "main.rsobjects",
+        "model": "main.postrentsale",
         "pk": 2,
         "fields": {
             "title": "MarSal",
             "image": "dom/dom2.jpg",
             "city": 1,
             "rent_sale": "2",
+            "type_property": "1",
             "status": "1",
             "dom_type": "3",
+            "material_type": "1",
             "floors": "3/5",
             "rooms": 7,
             "areas": 80,
@@ -75,6 +79,114 @@
             "description": "Отлично покупать стоит",
             "vip": "2",
             "slug": "marsal"
+        }
+    },
+    {
+        "model": "main.postrentsale",
+        "pk": 3,
+        "fields": {
+            "title": "Jannat Resort",
+            "image": "dom/com7.jpg",
+            "city": 2,
+            "rent_sale": "1",
+            "type_property": "4",
+            "status": "1",
+            "dom_type": "4",
+            "material_type": "1",
+            "floors": "3/5",
+            "rooms": 145,
+            "areas": 450,
+            "height_ceiling": 4,
+            "price": "4001.00",
+            "region": "Район №9",
+            "year_built": "2001-04-06",
+            "distance_sea": "20 шагов",
+            "distance_track": "500 метров",
+            "ownership": "Карабаев Нурсултан",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "vip": "2",
+            "slug": "jannat-resort"
+        }
+    },
+    {
+        "model": "main.postrentsale",
+        "pk": 4,
+        "fields": {
+            "title": "Rayan Hotel",
+            "image": "dom/dom2_OPO7riJ.jpg",
+            "city": 3,
+            "rent_sale": "2",
+            "type_property": "4",
+            "status": "1",
+            "dom_type": "4",
+            "material_type": "1",
+            "floors": "11",
+            "rooms": 15,
+            "areas": 600,
+            "height_ceiling": 5,
+            "price": "30000000.00",
+            "region": "Ленинская 181",
+            "year_built": "2020-05-16",
+            "distance_sea": "2 км",
+            "distance_track": "500 метров",
+            "ownership": "Карабаев Тимур",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "vip": "2",
+            "slug": "rayan-hotel"
+        }
+    },
+    {
+        "model": "main.imageshots",
+        "pk": 1,
+        "fields": {
+            "image": "image_shots/com7.jpg",
+            "rs_objects": 3
+        }
+    },
+    {
+        "model": "main.imageshots",
+        "pk": 2,
+        "fields": {
+            "image": "image_shots/kv4.jpg",
+            "rs_objects": 3
+        }
+    },
+    {
+        "model": "main.imageshots",
+        "pk": 3,
+        "fields": {
+            "image": "image_shots/kv4_vev74L2.jpg",
+            "rs_objects": 4
+        }
+    },
+    {
+        "model": "main.imageshots",
+        "pk": 4,
+        "fields": {
+            "image": "image_shots/zu6.jpg",
+            "rs_objects": 4
+        }
+    },
+    {
+        "model": "main.reviews",
+        "pk": 1,
+        "fields": {
+            "nikname": "Алман Бек",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image": "reviews/akt3_Yb3kXjm.png",
+            "video": "",
+            "date": "2021-05-16"
+        }
+    },
+    {
+        "model": "main.reviews",
+        "pk": 2,
+        "fields": {
+            "nikname": "Тима Святозавр",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "image": "reviews/akt2.jpg",
+            "video": "",
+            "date": "2021-05-03"
         }
     }
 ]

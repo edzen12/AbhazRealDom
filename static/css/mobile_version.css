@@ -1,0 +1,103 @@
+@media (max-width: 1000px) {
+	header .menu-top{
+	padding: 15px 0px 10px 0px;
+	background-color: #484848;
+	color:white;
+	font-family: 'Nunito', sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+	}
+	header .menu-top ul li{
+	display: inline-block;
+	margin: 0px 15px;
+	}
+	header .menu-top nav{
+	margin-top: 10px;
+	}
+	header .menu-top nav a{
+	transition: 0.3s;
+	text-decoration: none;
+	float:right;
+	color:#D4D0D0;
+	font-family: 'Nunito', sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	}
+	header .menu-bottom{
+		text-align: center;
+		padding: 15px 0px;
+	}
+	header .menu-bottom li{
+	z-index: 3;
+	background-color: white;
+	}
+header .menu-bottom li a{
+	padding: 10px 0px;
+	text-align: center;
+	transition: 0.2s;
+	font-size: 18px;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 600;
+	}
+	.section-video video{
+	width: 100%;
+	height: 800px;
+	object-fit: cover;
+	}
+	.objects .container .row .col-md-3 .objects__content{
+	text-align: center;
+	}
+	.objects .container .row .col-md-3 .objects__content .objects__name{
+	color:#D82460;
+	padding: 15px 0px 10px 0px;
+	display: block;
+	font-size: 22px;
+	border-bottom: 1px solid #E5E5E5;
+	margin-bottom: 15px;
+	}
+	.objects .container .row .col-md-3 .objects__content .objects__content-info .objects__location{
+	font-size: 18px;
+	}
+	.objects .container .row .col-md-3 .objects__content .objects__content-info ul {
+	display: inline-block;
+	}
+	.objects .container .row .col-md-3 .objects__content .objects__content-info ul li{
+	margin: 0px 10px;
+	font-size: 18px;
+	float: left;
+	}
+	footer{
+	color:white;
+	padding:50px 0px;
+	text-align: center;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 400;
+	background-color: #262626;
+	}
+	.footer-bottom .container .col-md-4 .footer-social{
+	padding-top: 20px;
+	text-align: center;
+	}
+
+
+
+
+
+
+
+	/*Стили детального описания*/
+	.objects-detail .objects-detail__social{
+		text-align: center;
+	}
+	.objects-detail .objects-detail__social span{
+	font-size: 24px;
+	}
+	.objects-detail .objects-detail__social ul li{
+	font-size: 24px;
+	}
+	.objects-detail .btn__class{
+		margin-top: 15px;
+		font-size: 20px;
+	}
+}

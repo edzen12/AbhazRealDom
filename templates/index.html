@@ -1,8 +1,124 @@
-{% for obj in city %}
-    <p>{{obj.title}}</p>
-{% endfor %}
+{% extends 'homebase.html' %}
+{% load static %}
+{% block content %} 
+<section class="section-video">
+    <div class="section-video__content">
+        <div class="section-video__content-text">
+            Недвижимость в <span>Абхазии</span>
+            <br>
+            Мечта из надежных рук
+        </div>
+        <a href="{% url 'index' %}" class="btn__class btn__class-video">посмотреть объекты</a>
+    </div>
+    <div class="video">
+        <video autoplay muted loop playsinline id="myVideo" type="video/mp4">
+            <source src="{% static 'videos/background.mp4' %}"  type='video/mp4'>
+        </video>
+    </div>
+</section>
+<!-- Filter Start-->
+<section class="section-filter">
+    <div class="container">
+        <form method="GET" action="{% url 'index' %}">
+            {% csrf_token %}
+            <!-- row start -->
+            <div class="row">
+                <div class="col-md-4 section-filter__form-div-top">
+                    <span>продажа/аренда</span>
+                    <select name='rent_sale' class="jq-selectbox__select">
+                        <option>Не выбрано</option>
+                        
+                            <!-- {% for el in rent_sale %}
+                            <option value="{{ el }}">{{ el }}</option>
+                            {% endfor %}  -->
+                       
+                    </select>
+                </div>
+                <div class="col-md-4 section-filter__form-div-top">
+                    <span>район/город</span>
+                    <select name='city' class="jq-selectbox__select">
+                        <option>Не выбрано</option>
+                        
+                            {% for el in city %}
+                            <option value="{{ el.id }}">{{ el.title }}</option>
+                            {% endfor %} 
+                       
+                    </select>
+                </div>
+                <div class="col-md-4 section-filter__form-div-top">
+                    <span>тип недвижимости</span>
+                    <select name='rs_objects' class="jq-selectbox__select">
+                        <option>Не выбрано</option>
+                        
+                            <!-- {% for el in rs_objects %}
+                            <option value="{{ el.id }}">{{ el.title }}</option>
+                            {% endfor %} -->
+                        
+                    </select>
+                </div>
+                <div class="col-md-6 section-filter__form-div-bottom">
+                    <span>цена (в рублях)</span>
+                    <input class="jq-selectbox__select" type="text" name="first_price" placeholder="От">
+                    <input class="jq-selectbox__select" type="text" name="second_price" placeholder="До">
+                </div>
+                <div class="col-md-6 section-filter__form-div-bottom">
+                    <span>площадь (м²)</span>
+                    <input class="jq-selectbox__select" type="text" name="area_first" placeholder="От">
+                    <input class="jq-selectbox__select" type="text" name="area_second" placeholder="До">
+                </div>
+                <div class="col-md-12 text-end">
+                    <button name="search"  type="submit" class="btn__class mt-2">поиск по фильтру</button>
+                </div>
+            </div>
+            <!-- row end -->
+        </form>
+    </div>
+</section>
 
-{% for obj in rs_objects %}
-    <p>{{obj.title}}</p>
-<img src="{{obj.image.url}}" alt="">
-{% endfor %}
+<!-- Вывод после фильтра START -->
+<section class="objects">
+    <div class="container">
+        <div class="row">
+
+            <!-- цикл START -->
+            {% for el in postrentsale %}
+            <div class="col-md-3 col-lg-3 col-12">
+                <div class="objects__content">
+                    <img src="{{el.image.url}}" class="img-fluid" style="height: 180px; object-fit: cover;">
+                    <div class="objects__content-info">
+                        <span class="objects__name">{{el.title}}</span>
+                        <img class="objects__location-img" src="{% static 'img/placeholder.svg' %}">
+                        <span class="objects__location">
+                            {{el.region}}, {{el.city}}
+                        </span>
+                    </div>
+                    <div class="objects__content-info">
+                        <img class="objects__location-img" src="{% static 'img/ruler.svg' %}">
+                        <span class="objects__location">
+                            {{el.areas}} м²
+                        </span>
+                        <img class="objects__location-img" src="{% static 'img/double-bed.svg' %}">
+                        <span class="objects__location">
+                            {{el.rooms}} комнаты
+                        </span>
+                    </div>
+                    <div class="objects__content-info">
+                        <img class="objects__location-img" src="{% static 'img/stairs.svg' %}">
+                        <span class="objects__location">
+                            {{el.floors}} этаж / этажность
+                        </span>
+                    </div>
+                    <div class="text-center pb-4 pt-3">
+                        <a href="#" class="btn__class">посмотреть</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- цикл START -->
+
+        </div>
+    </div>
+</section>
+<!-- Вывод после фильтра END -->
+
+{% endblock content %}

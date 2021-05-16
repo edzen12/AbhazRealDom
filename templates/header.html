@@ -1,0 +1,62 @@
+{% load static %}
+<header class="header">
+    <section class="menu-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <ul>
+                        <li>contact@example.com</li>
+                        <li>(123) 456 78 90</li>
+                    </ul>
+                </div>
+                <div class="col-md-7">
+                    <nav>
+                        <ul>
+                            <li><a href="{% url 'about' %}">О компании</a></li>
+                            <li><a href="{% url 'reviews' %}">Отзывы о нас</a></li>
+                            <li><a href="tel:(123) 456 78 90" class="red">ХОЧУ ПРОДАТЬ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="menu-bottom">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="{% url 'index' %}" style="background:white;">
+                <img src="{% static 'img/logo 2.png' %}" style="width: 118px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="active">
+                            <a class="" href="{% url 'index' %}">Главная</a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Аренда
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="active"><a class="dropdown-item" href="#">Дома</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Продажа
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="active"><a class="dropdown-item" href="#">Дома</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="" href="{% url 'projects' %}">Проекты</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+</header>
