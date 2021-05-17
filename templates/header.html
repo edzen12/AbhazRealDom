@@ -61,11 +61,19 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 
-                                {% for e in type_property %}
                                 <li class="active">
-                                    <a class="dropdown-item" href="#">{{e.title}}</a>
+                                    <a class="dropdown-item" href="{% url 'arenda_dom_page' %}">Дома </a>
                                 </li>
-                                {% endfor %}
+                                <li class="active">
+                                    <a class="dropdown-item" href="{% url 'arenda_kv_page' %}">Квартиры </a>
+                                </li>
+                                <li class="active">
+                                    <a class="dropdown-item" href="{% url 'arenda_uchactky_page' %}">Участки </a>
+                                </li>
+                                <li class="active">
+                                    <a class="dropdown-item" href="{% url 'arenda_com_ned_page' %}">Коммерческая недвижимость </a>
+                                </li>
+                                
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -73,11 +81,20 @@
                                 Продажа
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                {% for e in type_property %}
+                                
                                 <li class="active">
-                                    <a class="dropdown-item" href="#">{{e.title}}</a>
+                                    <a class="dropdown-item" href="{% url 'sale_dom_page' %}">Дома </a>
                                 </li>
-                                {% endfor %}    
+                                <li class="active">
+                                    <a class="dropdown-item" href="{% url 'sale_kv_page' %}">Квартиры </a>
+                                </li>
+                                <li class="active">
+                                    <a class="dropdown-item" href="{% url 'sale_uchactky_page' %}">Участки </a>
+                                </li>
+                                <li class="active">
+                                    <a class="dropdown-item" href="{% url 'sale_com_ned_page' %}">Коммерческая недвижимость </a>
+                                </li>
+                                
                             </ul>
                         </li>
                         <li {% if request.get_full_path == '/projects/' %} class="active" {% endif %}>

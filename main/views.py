@@ -7,7 +7,7 @@ from .models import (
 )
 
 
-
+# Фильтр и Главная страница
 def index(request):
 
     filter_city = request.GET.get("city")
@@ -80,58 +80,165 @@ def index(request):
     else:
         city = City.objects.all()
         rent_sale = RentSale.objects.all()
-        postrentsale = PostRentSale.objects.all()
+        postrentsale = PostRentSale.objects.all().order_by('-id')[:4]
         type_property = TypeProperty.objects.all()
     
     page="home"
     return render(request, 'index.html', locals())
 
 
+# Отдельная страница Поста
 class PostRentSaleDetailView(View):
     def get(self, request, slug):
         postrentsale = PostRentSale.objects.get(slug=slug)
-        type_property = TypeProperty.objects.all()
         imageshots = ImageShots.objects.all()
         rentsale = PostRentSale.objects.all().order_by('?')[:4]
         context = {
             'postrentsale': postrentsale,
             'rentsale': rentsale,
-            'type_property': type_property,
             'imageshots': imageshots
         }
         return render(request, "pages/postrentsale_detail.html", context)
 
 
+# Аренда - Дома
+def arenda_dom_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='1', rent_sale='1').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage.html', context)
+
+
+# Аренда - Квартиры
+def arenda_kv_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='2', rent_sale='1').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage.html', context)
+
+
+# Аренда - Участки
+def arenda_uchactky_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='3', rent_sale='1').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage.html', context)
+
+
+# Аренда - Коммерческая недвижимость
+def arenda_com_ned_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='4', rent_sale='1').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage.html', context)
+
+
+# Продажа - Дома
+def sale_dom_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='1', rent_sale='2').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage.html', context)
+
+
+# Продажа - Квартиры
+def sale_kv_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='2', rent_sale='2').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage.html', context)
+
+
+# Продажа - Участки
+def sale_uchactky_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='3', rent_sale='2').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage.html', context)
+
+
+# Продажа - Коммерческая недвижимость
+def sale_com_ned_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='4', rent_sale='2').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage.html', context)
+
+
+# Дома
+def dom_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='1').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage_all.html', context)
+
+
+# Квартиры
+def kv_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='2').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage_all.html', context)
+
+
+# Участки
+def uchactky_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='3').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage_all.html', context)
+
+
+# Коммерческая недвижимость
+def com_ned_page(request):
+    postrentsale = PostRentSale.objects.filter(type_property='4').order_by('-id')
+    context = {
+        'postrentsale': postrentsale
+    }
+    return render(request, 'objpage_all.html', context)
+
+
+# Отзывы
 def reviews(request):
     reviews = Reviews.objects.all()
-    type_property = TypeProperty.objects.all()
     context = {
         'reviews': reviews,
-        'type_property': type_property
     }
     page="reviews"
     return render(request, 'pages/reviews.html', context)
 
 
+# ОТдельная стр Отзывов
 class ReviewsDetailView(View):
     def get(self, request, slug):
         reviews = Reviews.objects.get(slug=slug)
-        type_property = TypeProperty.objects.all()
         context = {
             'reviews': reviews,
-            'type_property': type_property
         }
         page="reviews"
         return render(request, "pages/reviews_detail.html", context)
 
 
+# О компании
 def about(request):
     page="about"
-    type_property = TypeProperty.objects.all()
-    return render(request, 'pages/about.html', {'type_property': type_property})
+    return render(request, 'pages/about.html')
 
 
+# Проекты
 def projects(request):
     page="projects"
-    type_property = TypeProperty.objects.all()
-    return render(request, 'pages/projects.html', {'type_property': type_property})
+    return render(request, 'pages/projects.html')
+
+

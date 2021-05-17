@@ -4,7 +4,10 @@ from django.urls import path
 
 from .views import (
     index, reviews, about, projects,
-    ReviewsDetailView, PostRentSaleDetailView
+    ReviewsDetailView, PostRentSaleDetailView,
+    arenda_dom_page, arenda_kv_page, arenda_uchactky_page, arenda_com_ned_page,
+    sale_dom_page, sale_kv_page, sale_uchactky_page, sale_com_ned_page,
+    dom_page, kv_page, uchactky_page, com_ned_page,
 )
 
 urlpatterns = [
@@ -12,6 +15,22 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('projects/', projects, name='projects'),
     path('reviews/', reviews, name='reviews'),
+
+    path('arenda-dom-page/', arenda_dom_page, name='arenda_dom_page'),
+    path('arenda-kv-page/', arenda_kv_page, name='arenda_kv_page'),
+    path('arenda-uchactky-page/', arenda_uchactky_page, name='arenda_uchactky_page'),
+    path('arenda-comned-page/', arenda_com_ned_page, name='arenda_com_ned_page'),
+
+    path('sale-dom-page/', sale_dom_page, name='sale_dom_page'),
+    path('sale-kv-page/', sale_kv_page, name='sale_kv_page'),
+    path('sale-uchactky-page/', sale_uchactky_page, name='sale_uchactky_page'),
+    path('sale-comned-page/', sale_com_ned_page, name='sale_com_ned_page'),
+
+    path('dom-page/', dom_page, name='dom_page'),
+    path('kv-page/', kv_page, name='kv_page'),
+    path('uchactky-page/', uchactky_page, name='uchactky_page'),
+    path('comned-page/', com_ned_page, name='com_ned_page'),
+
     path('reviews/<slug:slug>/', ReviewsDetailView.as_view(), name="reviews_detail"),
     path('postrentsale/<slug:slug>/', PostRentSaleDetailView.as_view(), name="postrentsale_detail"),
 ]
