@@ -90,18 +90,24 @@ def index(request):
 class PostRentSaleDetailView(View):
     def get(self, request, slug):
         postrentsale = PostRentSale.objects.get(slug=slug)
+        type_property = TypeProperty.objects.all()
+        imageshots = ImageShots.objects.all()
         rentsale = PostRentSale.objects.all().order_by('?')[:4]
         context = {
             'postrentsale': postrentsale,
-            'rentsale': rentsale
+            'rentsale': rentsale,
+            'type_property': type_property,
+            'imageshots': imageshots
         }
         return render(request, "pages/postrentsale_detail.html", context)
 
 
 def reviews(request):
     reviews = Reviews.objects.all()
+    type_property = TypeProperty.objects.all()
     context = {
         'reviews': reviews,
+        'type_property': type_property
     }
     page="reviews"
     return render(request, 'pages/reviews.html', context)
@@ -110,8 +116,10 @@ def reviews(request):
 class ReviewsDetailView(View):
     def get(self, request, slug):
         reviews = Reviews.objects.get(slug=slug)
+        type_property = TypeProperty.objects.all()
         context = {
             'reviews': reviews,
+            'type_property': type_property
         }
         page="reviews"
         return render(request, "pages/reviews_detail.html", context)
@@ -119,9 +127,11 @@ class ReviewsDetailView(View):
 
 def about(request):
     page="about"
-    return render(request, 'pages/about.html')
+    type_property = TypeProperty.objects.all()
+    return render(request, 'pages/about.html', {'type_property': type_property})
 
 
 def projects(request):
     page="projects"
-    return render(request, 'pages/projects.html')
+    type_property = TypeProperty.objects.all()
+    return render(request, 'pages/projects.html', {'type_property': type_property})

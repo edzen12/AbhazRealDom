@@ -10,34 +10,32 @@
             <div class="col-md-6">
                 <div class="swiper-container gallery-top" uk-lightbox>
                     <div class="swiper-wrapper">
-
+                        
+                        
+                        {% for image in postrentsale.imageshots_set.all %}
+                            
                         <div class="swiper-slide">
                             <div class="swiper-slide-container">
-                                <a class="uk-button uk-button-primary" href="img/img05.jpg">
-                                    <img src="img/img05.jpg">
+                                <a class="uk-button uk-button-primary" href="{{image.image.url}}">
+                                    <img src="{{image.image.url}}">
                                 </a>
                             </div>
                         </div>
 
+                        {% endfor %}
+
                     </div>
                     <!-- Add Arrows -->
-                    <div class="swiper-button-next"><img src="../img/svg/next.png"></div>
-                    <div class="swiper-button-prev"><img src="../img/svg/back.png"></div>
+                    <div class="swiper-button-next"><img src="{% static 'img/svg/next.png' %}"></div>
+                    <div class="swiper-button-prev"><img src="{% static 'img/svg/back.png' %}"></div>
                 </div>
                 <div class="swiper-container gallery-thumbs">
                     <div class="swiper-wrapper">
+                        {% for image in postrentsale.imageshots_set.all %}
                         <div class="swiper-slide">
-                            <div class="swiper-slide-container"><img src="img/img05.jpg"></div>
+                            <div class="swiper-slide-container"><img src="{{image.image.url}}"></div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="swiper-slide-container"><img src="img/img05.jpg"></div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="swiper-slide-container"><img src="img/img05.jpg"></div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="swiper-slide-container"><img src="img/img05.jpg"></div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <script type="text/javascript">

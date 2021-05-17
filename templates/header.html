@@ -60,9 +60,12 @@
                                 Аренда
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                
+                                {% for e in type_property %}
                                 <li class="active">
-                                    <a class="dropdown-item" href="#">Дома</a>
+                                    <a class="dropdown-item" href="#">{{e.title}}</a>
                                 </li>
+                                {% endfor %}
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -70,9 +73,11 @@
                                 Продажа
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for e in type_property %}
                                 <li class="active">
-                                    <a class="dropdown-item" href="#">Дома</a>
+                                    <a class="dropdown-item" href="#">{{e.title}}</a>
                                 </li>
+                                {% endfor %}    
                             </ul>
                         </li>
                         <li {% if request.get_full_path == '/projects/' %} class="active" {% endif %}>
