@@ -27,6 +27,7 @@ ul {
 }
 
 .btn__class{
+  display: none;
 	transition: 0.3s;
 	font-family: Nunito, sans-serif;
 	font-weight: 400;
