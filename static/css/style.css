@@ -1,6 +1,9 @@
 body{
 
 }
+button{
+  border-width:0px;
+}
 input:active, input:focus {
   outline: none;
 }
@@ -27,8 +30,7 @@ ul {
 }
 
 .btn__class{
-  display: none;
-	transition: 0.3s;
+  transition: 0.3s;
 	font-family: Nunito, sans-serif;
 	font-weight: 400;
 	font-size: 16px;
@@ -90,6 +92,9 @@ header .menu-top nav a:hover{
 
 }
 
+header .menu-bottom .navbar{
+  padding: 0px;
+}
 header .menu-bottom li a{
   padding: 30px 15px;
   display: block;
@@ -361,8 +366,8 @@ display: block;
 	font-size: 14px;
 	float: left;
 }
-.objects .container .row .col-md-3 .objects__content .objects__content-info a{
-	margin:20px 0px;
+.objects .container .row .col-md-3 .objects__content a{
+	margin:0px 20px;
 	padding: 5px 25px;
 }
 .objects .container .row .col-md-3 .objects__content .objects__content-info a:hover{
@@ -372,6 +377,7 @@ display: block;
 
 footer{
 	color:white;
+  margin-top: 30px;
 	padding:50px 0px;
 	font-family: 'Nunito', sans-serif;
 	font-weight: 400;

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
 from django.db.models import Q
 from .models import (
-    City, PostRentSale, Reviews, 
+    City, PostRentSale, Reviews,
     ImageShots, TypeProperty, RentSale
 )
 
@@ -24,13 +24,13 @@ def index(request):
         rent_sale = RentSale.objects.all()
         postrentsale = PostRentSale.objects.all()
         type_property = TypeProperty.objects.all()
-    
+
         if filter_city == 'Не выбрано':
             filter_city = False
 
         if filter_rent_sale == 'Не выбрано':
             filter_rent_sale = False
-        
+
         if filter_type_property == 'Не выбрано':
             filter_type_property = False
 
@@ -82,7 +82,7 @@ def index(request):
         rent_sale = RentSale.objects.all()
         postrentsale = PostRentSale.objects.all().order_by('-id')[:4]
         type_property = TypeProperty.objects.all()
-    
+
     page="home"
     return render(request, 'index.html', locals())
 
@@ -92,7 +92,7 @@ class PostRentSaleDetailView(View):
     def get(self, request, slug):
         postrentsale = PostRentSale.objects.get(slug=slug)
         imageshots = ImageShots.objects.all()
-        rentsale = PostRentSale.objects.all().order_by('?')[:4]
+        rentsale = PostRentSale.objects.all().order_by('price')[:4]
         context = {
             'postrentsale': postrentsale,
             'rentsale': rentsale,
@@ -240,5 +240,3 @@ def about(request):
 def projects(request):
     page="projects"
     return render(request, 'pages/projects.html')
-
-

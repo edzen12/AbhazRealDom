@@ -1,7 +1,7 @@
 {% extends 'homebase.html' %}
 {% load static %}
 
-{% block content %} 
+{% block content %}
 
 <!-- Вывод после фильтра START -->
 <section class="objects">
@@ -21,22 +21,28 @@
                         </span>
                     </div>
                     <div class="objects__content-info">
+                    {% if el.areas %}
                         <img class="objects__location-img" src="{% static 'img/ruler.svg' %}">
                         <span class="objects__location">
                             {{el.areas}} м²
                         </span>
+                    {% endif %}
+                    {% if el.rooms %}
                         <img class="objects__location-img" src="{% static 'img/double-bed.svg' %}">
                         <span class="objects__location">
                             {{el.rooms}} комнаты
                         </span>
+                    {% endif %}
                     </div>
+                    {% if el.floors %}
                     <div class="objects__content-info">
                         <img class="objects__location-img" src="{% static 'img/stairs.svg' %}">
                         <span class="objects__location">
                             {{el.floors}} этаж / этажность
                         </span>
                     </div>
-                    <div class="text-center pb-4 pt-3">
+                    {% endif %}
+                    <div class="pb-4 pt-3">
                         <a href="{{el.get_absolute_url}}" class="btn__class">посмотреть</a>
                     </div>
                 </div>
@@ -49,4 +55,4 @@
 </section>
 
 
-{% endblock content %} 
+{% endblock content %}

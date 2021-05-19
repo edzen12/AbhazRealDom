@@ -1,7 +1,7 @@
 {% extends 'homebase.html' %}
 {% load static %}
 
-{% block content %} 
+{% block content %}
 
 <section class="objects-detail">
     <div class="container">
@@ -10,10 +10,10 @@
             <div class="col-md-6">
                 <div class="swiper-container gallery-top" uk-lightbox>
                     <div class="swiper-wrapper">
-                        
-                        
+
+
                         {% for image in postrentsale.imageshots_set.all %}
-                            
+
                         <div class="swiper-slide">
                             <div class="swiper-slide-container">
                                 <a class="uk-button uk-button-primary" href="{{image.image.url}}">
@@ -51,11 +51,11 @@
                      });
                      var galleryThumbs = new Swiper('.gallery-thumbs', {
                        spaceBetween: 10,
-                     
+
                        slidesPerView: 5,
                        touchRatio: 0.2,
                        slideToClickedSlide: true,
-                       loop: true, 
+                       loop: true,
                        loopedSlides: 5
                      });
                      galleryTop.controller.control = galleryThumbs;
@@ -64,46 +64,66 @@
             </div>
             <div class="col-md-6">
                 <table>
+                    {% if postrentsale.region and postrentsale.city %}
                     <tr>
                         <td>Район/Город: </td>
                         <td>{{postrentsale.region}}, г.{{postrentsale.city}}</td>
                     </tr>
+                    {% endif %}
+                    {% if postrentsale.areas %}
                     <tr>
                         <td>Площадь:</td>
                         <td>{{postrentsale.areas}} м²</td>
                     </tr>
+                    {% endif %}
+                    {% if postrentsale.floors %}
                     <tr>
                         <td>Этаж / этажность:</td>
                         <td>{{postrentsale.floors}}</td>
                     </tr>
+                    {% endif %}
+                    {% if postrentsale.status %}
                     <tr>
                         <td>Состояние:</td>
                         <td>{{postrentsale.status}}</td>
                     </tr>
+                    {% endif %}
+                    {% if postrentsale.height_ceiling %}
                     <tr>
                         <td>Высота потолков:</td>
                         <td>{{postrentsale.height_ceiling}} м</td>
                     </tr>
+                    {% endif %}
+                    {% if postrentsale.dom_type %}
                     <tr>
                         <td>Тип дома:</td>
                         <td>{{postrentsale.dom_type}}</td>
                     </tr>
+                    {% endif %}
+                    {% if postrentsale.ownership %}
                     <tr>
                         <td>Право собственности:</td>
                         <td>{{postrentsale.ownership}}</td>
                     </tr>
+                    {% endif %}
+                    {% if postrentsale.distance_sea %}
                     <tr>
                         <td>Расстояние до моря:</td>
                         <td>{{postrentsale.distance_sea}}</td>
                     </tr>
+                    {% endif %}
+                    {% if postrentsale.distance_track %}
                     <tr>
                         <td>Расстояние до трассы:</td>
                         <td>{{postrentsale.distance_track}}</td>
                     </tr>
+                    {% endif %}
+                    {% if postrentsale.price %}
                     <tr>
                         <td>Стоимость:</td>
                         <td>{{postrentsale.price}} ₽</td>
                     </tr>
+                    {% endif %}
                 </table>
                 <hr>
                 <div class="objects-detail__social">
@@ -140,37 +160,45 @@
                     <img src="{{el.image.url}}" class="img-fluid" style="height: 180px; object-fit: cover;">
                     <div class="objects__content-info">
                         <span class="objects__name">{{el.title}}</span>
+                        {% if el.region and el.city %}
                         <img class="objects__location-img" src="{% static 'img/placeholder.svg' %}">
                         <span class="objects__location">
                             {{el.region}}, {{el.city}}
                         </span>
+                        {% endif %}
                     </div>
                     <div class="objects__content-info">
+                      {% if el.areas %}
                         <img class="objects__location-img" src="{% static 'img/ruler.svg' %}">
                         <span class="objects__location">
                             {{el.areas}} м²
                         </span>
+                      {% endif %}
+                      {% if el.rooms %}
                         <img class="objects__location-img" src="{% static 'img/double-bed.svg' %}">
                         <span class="objects__location">
                             {{el.rooms}} комнаты
                         </span>
+                      {% endif %}
                     </div>
                     <div class="objects__content-info">
+                      {% if el.floors %}
                         <img class="objects__location-img" src="{% static 'img/stairs.svg' %}">
                         <span class="objects__location">
                             {{el.floors}} этаж / этажность
                         </span>
+                      {% endif %}
                     </div>
-                    <div class="text-center pb-4 pt-3">
+                    <div class="pb-4 pt-3">
                         <a href="{{el.get_absolute_url}}" class="btn__class">посмотреть</a>
                     </div>
                 </div>
             </div>
             {% endfor %}
             <!-- цикл START -->
-            
+
         </div>
     </div>
 </section>
 
-{% endblock content %} 
+{% endblock content %}
