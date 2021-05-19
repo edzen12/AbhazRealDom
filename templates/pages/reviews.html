@@ -1,7 +1,9 @@
 {% extends 'homebase.html' %}
 {% load static %}
 
-{% block content %} 
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
 <section class="reviews mb-5 pb-5">
     <div class="container">
         <div class="row">
@@ -11,10 +13,10 @@
                 <div class="card mt-5 mb-5">
                 <a href="{{el.get_absolute_url}}">
                     <ul>
-                        <li style="color: #f24d68; font-weight: bold; font-size: 16px; 
+                        <li style="color: #f24d68; font-weight: bold; font-size: 16px;
                         font-family: initial; text-transform: capitalize;" class="reviews__name">{{el.nikname}}</li>
                     </ul>
-                    <img src="{{el.image.url}}" class="card-img-top" 
+                    <img src="{{el.image.url}}" class="card-img-top"
                         style="height: 250px; object-fit: cover;">
                     <hr>
                     <p>{{ el.desc|truncatewords_html:10 }}</p>
@@ -26,8 +28,8 @@
                 </div>
             </div>
             {% endfor %}
-            
+
         </div>
     </div>
 </section>
-{% endblock content %} 
+{% endblock content %}

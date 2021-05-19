@@ -105,7 +105,8 @@ class PostRentSaleDetailView(View):
 def arenda_dom_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='1', rent_sale='1').order_by('-id')
     context = {
-        'postrentsale': postrentsale
+        'postrentsale': postrentsale,
+        'title': 'Аренда домов'
     }
     return render(request, 'objpage.html', context)
 
@@ -114,7 +115,8 @@ def arenda_dom_page(request):
 def arenda_kv_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='2', rent_sale='1').order_by('-id')
     context = {
-        'postrentsale': postrentsale
+        'postrentsale': postrentsale,
+        'title': 'Аренда квартир'
     }
     return render(request, 'objpage.html', context)
 
@@ -123,7 +125,8 @@ def arenda_kv_page(request):
 def arenda_uchactky_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='3', rent_sale='1').order_by('-id')
     context = {
-        'postrentsale': postrentsale
+        'postrentsale': postrentsale,
+        'title': 'Аренда участков'
     }
     return render(request, 'objpage.html', context)
 
@@ -132,7 +135,8 @@ def arenda_uchactky_page(request):
 def arenda_com_ned_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='4', rent_sale='1').order_by('-id')
     context = {
-        'postrentsale': postrentsale
+        'postrentsale': postrentsale,
+        'title': 'Аренда коммерческой недвижимости'
     }
     return render(request, 'objpage.html', context)
 
@@ -141,7 +145,8 @@ def arenda_com_ned_page(request):
 def sale_dom_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='1', rent_sale='2').order_by('-id')
     context = {
-        'postrentsale': postrentsale
+        'postrentsale': postrentsale,
+        'title': 'Продажа домов'
     }
     return render(request, 'objpage.html', context)
 
@@ -150,7 +155,8 @@ def sale_dom_page(request):
 def sale_kv_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='2', rent_sale='2').order_by('-id')
     context = {
-        'postrentsale': postrentsale
+        'postrentsale': postrentsale,
+        'title': 'Продажа квартир'
     }
     return render(request, 'objpage.html', context)
 
@@ -159,7 +165,8 @@ def sale_kv_page(request):
 def sale_uchactky_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='3', rent_sale='2').order_by('-id')
     context = {
-        'postrentsale': postrentsale
+        'postrentsale': postrentsale,
+        'title': 'Продажа участков'
     }
     return render(request, 'objpage.html', context)
 
@@ -168,7 +175,8 @@ def sale_uchactky_page(request):
 def sale_com_ned_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='4', rent_sale='2').order_by('-id')
     context = {
-        'postrentsale': postrentsale
+        'postrentsale': postrentsale,
+        'title': 'Продажа коммерческой недвижимости'
     }
     return render(request, 'objpage.html', context)
 
@@ -214,6 +222,7 @@ def reviews(request):
     reviews = Reviews.objects.all()
     context = {
         'reviews': reviews,
+        'title': 'Отзывы о нас'
     }
     page="reviews"
     return render(request, 'pages/reviews.html', context)
@@ -224,7 +233,7 @@ class ReviewsDetailView(View):
     def get(self, request, slug):
         reviews = Reviews.objects.get(slug=slug)
         context = {
-            'reviews': reviews,
+            'reviews': reviews
         }
         page="reviews"
         return render(request, "pages/reviews_detail.html", context)
@@ -232,11 +241,17 @@ class ReviewsDetailView(View):
 
 # О компании
 def about(request):
+    context = {
+        'title': 'О компании'
+    }
     page="about"
-    return render(request, 'pages/about.html')
+    return render(request, 'pages/about.html', context)
 
 
 # Проекты
 def projects(request):
+    context = {
+        'title': 'Проекты'
+    }
     page="projects"
-    return render(request, 'pages/projects.html')
+    return render(request, 'pages/projects.html', context)
