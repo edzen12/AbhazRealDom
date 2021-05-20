@@ -7,7 +7,7 @@
 
 <section class="objects-detail">
     <div class="container">
-        <h2>{{postrentsale.title}}</h2>
+        <h2>{{postrentsale.title}} {% if postrentsale.areas %} , {{postrentsale.areas}} м² {% endif %}<span>#{{postrentsale.id}}</span></h2>
         <div class="row">
             <div class="col-md-6">
                 <div class="swiper-container gallery-top" uk-lightbox>
@@ -120,6 +120,10 @@
                         <td>{{postrentsale.distance_track}}</td>
                     </tr>
                     {% endif %}
+                    <tr>
+                        <td>Номер объекта:</td>
+                        <td>#{{postrentsale.id}}</td>
+                    </tr>
                     {% if postrentsale.price %}
                     <tr>
                         <td>Стоимость:</td>
@@ -129,14 +133,15 @@
                 </table>
                 <hr>
                 <div class="objects-detail__social">
-                    <!-- <ul>
+                    <ul>
                         <span>Поделиться:</span>
                         <li><a href=""><i class="fab fa-twitter"></i></a></li>
                         <li><a href=""><i class="fab fa-instagram"></i></a></li>
                         <li><a href=""><i class="fab fa-vk"></i></a></li>
                         <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                    </ul> -->
-                    <a href="tel:+7 (940) 000-00-00" class="btn__class">Позвонить</a>
+                    </ul>
+                    <a href="tel:+79407371717" class="btn__class"><i class="fa fa-phone" style="font-size:13px;"></i> Позвонить</a>
+                    <a href="https://wa.me/+79407371717" class="btn__class btn__class-whatsApp"><i class="fab fa-whatsapp"></i> Написать</a>
                 </div>
             </div>
         </div>
