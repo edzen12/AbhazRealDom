@@ -74,7 +74,7 @@
 
             <!-- цикл START -->
             {% for el in postrentsale %}
-            {% if el.vip == 'Да' %}
+
             <div class="col-md-3 col-lg-3 col-12">
                 <div class="objects__content">
                 <div class="objects__content-img" style="background: url({{ el.image.url }}); background-size: cover;">
@@ -85,6 +85,10 @@
                         <img class="objects__location-img" src="{% static 'img/placeholder.svg' %}">
                         <span class="objects__location">
                             {{el.region}}, {{el.city}}
+                        </span><br>
+                        <img class="objects__location-img" src="{% static 'img/3d-model.svg' %}">
+                        <span class="objects__location">
+                            {{el.rent_sale}} | {{el.type_property}}
                         </span>
                     </div>
 
@@ -115,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
+
             {% endfor %}
             <!-- цикл START -->
 
