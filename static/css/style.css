@@ -514,4 +514,7 @@ line-height: 22px;
   header .menu-bottom li a{
   padding: 15px 0px;
   }
+  .footer-bottom .container .col-md-4 .footer-social {
+  text-align: center;
+  }
 }
