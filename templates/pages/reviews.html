@@ -16,8 +16,13 @@
                         <li style="color: #f24d68; font-weight: bold; font-size: 16px;
                         font-family: initial; text-transform: capitalize;" class="reviews__name">{{el.nikname}}</li>
                     </ul>
-                    <img src="{{el.image.url}}" class="card-img-top"
-                        style="height: 250px; object-fit: cover;">
+                    
+                    {% if el.image %}
+                        <img src="{{el.image.url}}" class="card-img-top" style="height: 250px; object-fit: cover;">
+                    {% else %}
+                        <img src="{% static 'img/photo.png' %}" class="img-thumbnail">        
+                    {% endif %}
+      
                     <hr>
                     <p>{{ el.desc|truncatewords_html:10 }}</p>
                     <ul>
