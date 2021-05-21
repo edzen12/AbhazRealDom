@@ -1,33 +1,5 @@
 [
     {
-        "model": "main.city",
-        "pk": 1,
-        "fields": {
-            "title": "Москва"
-        }
-    },
-    {
-        "model": "main.city",
-        "pk": 2,
-        "fields": {
-            "title": "Санкт-Петербург"
-        }
-    },
-    {
-        "model": "main.city",
-        "pk": 3,
-        "fields": {
-            "title": "Абхазия"
-        }
-    },
-    {
-        "model": "main.city",
-        "pk": 4,
-        "fields": {
-            "title": "Ростов"
-        }
-    },
-    {
         "model": "main.rentsale",
         "pk": 1,
         "fields": {
@@ -70,200 +42,12 @@
         }
     },
     {
-        "model": "main.postrentsale",
-        "pk": 1,
-        "fields": {
-            "title": "Rahat Residence",
-            "image": "dom/dom1.jpg",
-            "city": 4,
-            "rent_sale": 1,
-            "type_property": 2,
-            "status": "С ремонтом",
-            "dom_type": "Сталинка",
-            "material_type": "Кирпичный",
-            "floors": "2 / 11",
-            "rooms": 3,
-            "areas": 40,
-            "height_ceiling": 2,
-            "price": "2000.00",
-            "region": "Первомайский",
-            "year_built": "2010-05-09",
-            "distance_sea": "20 шагов",
-            "distance_track": "50 шагов",
-            "ownership": "Карабаев Нурсултан",
-            "description": "Отличное место для отдыха и работы",
-            "vip": null,
-            "slug": "rahat-residence"
-        }
-    },
-    {
-        "model": "main.postrentsale",
-        "pk": 2,
-        "fields": {
-            "title": "MarSal",
-            "image": "dom/dom2.jpg",
-            "city": 1,
-            "rent_sale": 2,
-            "type_property": 1,
-            "status": "Без ремонта",
-            "dom_type": "Сталинка",
-            "material_type": "Кирпичный",
-            "floors": "3/5",
-            "rooms": 7,
-            "areas": 80,
-            "height_ceiling": 3,
-            "price": "4000000.00",
-            "region": "Кара-Кулский",
-            "year_built": "2009-05-09",
-            "distance_sea": "2 км",
-            "distance_track": "500 метров",
-            "ownership": "Карабаев Тимур",
-            "description": "Отлично покупать стоит",
-            "vip": null,
-            "slug": "marsal"
-        }
-    },
-    {
-        "model": "main.postrentsale",
-        "pk": 3,
-        "fields": {
-            "title": "Jannat Resort",
-            "image": "dom/com7.jpg",
-            "city": 2,
-            "rent_sale": 1,
-            "type_property": 1,
-            "status": "Без ремонта",
-            "dom_type": "Апартаменты",
-            "material_type": "Блочный",
-            "floors": "3/5",
-            "rooms": 145,
-            "areas": 450,
-            "height_ceiling": 4,
-            "price": "4001.00",
-            "region": "Район №9",
-            "year_built": "2001-04-06",
-            "distance_sea": "20 шагов",
-            "distance_track": "500 метров",
-            "ownership": "Карабаев Нурсултан",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "vip": null,
-            "slug": "jannat-resort"
-        }
-    },
-    {
-        "model": "main.postrentsale",
-        "pk": 4,
-        "fields": {
-            "title": "Rayan Hotel",
-            "image": "dom/dom2_OPO7riJ.jpg",
-            "city": 3,
-            "rent_sale": 2,
-            "type_property": 4,
-            "status": "Без ремонта",
-            "dom_type": "Апартаменты",
-            "material_type": "Кирпичный",
-            "floors": "11",
-            "rooms": 15,
-            "areas": 600,
-            "height_ceiling": 5,
-            "price": "30000000.00",
-            "region": "Ленинская 181",
-            "year_built": "2020-05-16",
-            "distance_sea": "2 км",
-            "distance_track": "500 метров",
-            "ownership": "Карабаев Тимур",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "vip": null,
-            "slug": "rayan-hotel"
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 1,
-        "fields": {
-            "image": "image_shots/akt.jpeg",
-            "rs_objects": 3
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 2,
-        "fields": {
-            "image": "image_shots/akt1.jpeg",
-            "rs_objects": 3
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 3,
-        "fields": {
-            "image": "image_shots/kv4_vev74L2.jpg",
-            "rs_objects": 4
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 4,
-        "fields": {
-            "image": "image_shots/zu6.jpg",
-            "rs_objects": 4
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 5,
-        "fields": {
-            "image": "image_shots/dom2_IJtiFhv.jpg",
-            "rs_objects": 2
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 6,
-        "fields": {
-            "image": "image_shots/com7_j8NumxD.jpg",
-            "rs_objects": 2
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 7,
-        "fields": {
-            "image": "image_shots/com8.jpg",
-            "rs_objects": 2
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 8,
-        "fields": {
-            "image": "image_shots/com7_5Ue9EkL.jpg",
-            "rs_objects": 1
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 9,
-        "fields": {
-            "image": "image_shots/dom1_fBlPKgi.jpg",
-            "rs_objects": 1
-        }
-    },
-    {
-        "model": "main.imageshots",
-        "pk": 10,
-        "fields": {
-            "image": "image_shots/com8_pSTRBqr.jpg",
-            "rs_objects": 1
-        }
-    },
-    {
         "model": "main.reviews",
         "pk": 1,
         "fields": {
             "nikname": "Алман Бек",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "image": "reviews/akt3_Yb3kXjm.png",
+            "image": "",
             "video": "",
             "date": "2021-05-16",
             "slug": "alman-bek"
@@ -275,7 +59,7 @@
         "fields": {
             "nikname": "Тима Святозавр",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "image": "reviews/akt2.jpg",
+            "image": "",
             "video": "",
             "date": "2021-05-03",
             "slug": "tima-svyatozavr"
