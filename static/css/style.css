@@ -43,7 +43,7 @@ ul {
 	display: inline-block;
 	text-decoration: none;
 	color:white;
-	border-radius: 100px;
+	border-radius: 50px;
 }
 .btn__class:hover{
  	border-radius: 0px;

@@ -110,7 +110,7 @@ def index(request):
     else:
         city = City.objects.all()
         rent_sale = RentSale.objects.all()
-        postrentsale = PostRentSale.objects.all().order_by('-id')[:8]
+        postrentsale = PostRentSale.objects.all().order_by('-id')[:4]
         type_property = TypeProperty.objects.all()
 
     page="home"
