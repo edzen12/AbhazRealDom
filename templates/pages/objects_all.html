@@ -1,0 +1,80 @@
+{% extends 'homebase.html' %}
+{% load static %}
+
+{% block title %}Все объекты - Недвижимость в Абхазии - Мечта из надежных рук{% endblock %}
+
+{% block content %}
+
+<!-- Вывод после фильтра START -->
+<section class="objects">
+    <div id='container' class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-12">
+                <h2 class="card-title text-center pt-4 pb-5" style="text-transform: uppercase;">
+                    Все объекты 
+                </h2>
+            </div>
+
+            <!-- цикл START -->
+            {% for el in postrentsale %}
+
+            <div class="col-md-3 col-lg-3 col-12">
+                <div class="objects__content">
+
+                    <div class="objects__content-img" 
+                    style="background: url({% if el.image %}{{ el.image.url }}{% else %}{% static 'img/photo.png' %}{% endif %}); background-size:cover;">
+
+                
+                <span class="objects__content-price">{{ el.price }} ₽</span>
+                </div>
+                    <div class="objects__content-info">
+                        <span class="objects__name">{{el.title}}</span>
+                        <img class="objects__location-img" src="{% static 'img/placeholder.svg' %}">
+                        <span class="objects__location">
+                            {{el.region}}, {{el.city}}
+                        </span><br>
+                        <img class="objects__location-img" src="{% static 'img/3d-model.svg' %}">
+                        <span class="objects__location">
+                            {{el.rent_sale}} | {{el.type_property}}
+                        </span>
+                    </div>
+
+                    <div class="objects__content-info">
+                    {% if el.areas %}
+                        <img class="objects__location-img" src="{% static 'img/ruler.svg' %}">
+                        <span class="objects__location">
+                            {{el.areas}} м²
+                        </span>
+                    {% endif %}
+                    {% if el.rooms %}
+                        <img class="objects__location-img" src="{% static 'img/double-bed.svg' %}">
+                        <span class="objects__location">
+                            {{el.rooms}} комнаты
+                        </span>
+                    {% endif %}
+                    </div>
+                    {% if el.floors %}
+                    <div class="objects__content-info">
+                        <img class="objects__location-img" src="{% static 'img/stairs.svg' %}">
+                        <span class="objects__location">
+                            {{el.floors}} этаж / этажность
+                        </span>
+                    </div>
+                    {% endif %}
+                    <div class="pb-4 pt-3">
+                        <a href="{{el.get_absolute_url}}" class="btn__class">посмотреть</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+            <!-- цикл START -->
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Вывод после фильтра END -->
+{% endblock content %}

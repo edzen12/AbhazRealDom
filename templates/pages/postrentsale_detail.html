@@ -9,6 +9,10 @@
     <div class="container">
         <h2>{{postrentsale.title}} {% if postrentsale.areas %} , {{postrentsale.areas}} м² {% endif %}<span>#{{postrentsale.id}}</span></h2>
         <div class="row">
+            
+            {% if postrentsale.imageshots %}
+
+            <!-- image carousel -->
             <div class="col-md-6">
                 <div class="swiper-container gallery-top" uk-lightbox>
                     <div class="swiper-wrapper">
@@ -64,6 +68,19 @@
                      galleryThumbs.controller.control = galleryTop;
                 </script>
             </div>
+            <!-- image carousel -->
+            {% elif not postrentsale.imageshots %}
+            <div class="col-md-6">
+                <div class="swiper-slide">
+                    <div class="swiper-slide-container">
+                        <a class="uk-button uk-button-primary" href="{{postrentsale.image.url}}">
+                            <img src="{{postrentsale.image.url}}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
             <div class="col-md-6">
                 <table>
                     {% if postrentsale.region and postrentsale.city %}
@@ -133,13 +150,13 @@
                 </table>
                 <hr>
                 <div class="objects-detail__social">
-                    <ul>
+                    <!-- <ul>
                         <span>Поделиться:</span>
                         <li><a href=""><i class="fab fa-twitter"></i></a></li>
                         <li><a href=""><i class="fab fa-instagram"></i></a></li>
                         <li><a href=""><i class="fab fa-vk"></i></a></li>
                         <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                    </ul>
+                    </ul> -->
                     <a href="tel:+79407371717" class="btn__class"><i class="fa fa-phone" style="font-size:13px;"></i> Позвонить</a>
                     <a href="https://wa.me/+79407371717" target="_blank" class="btn__class btn__class-whatsApp"><i class="fab fa-whatsapp"></i> Написать</a>
                 </div>

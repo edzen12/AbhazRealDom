@@ -48,6 +48,26 @@
         <script src="{% static 'js/script.js' %}"></script>
         <!-- Вариант 1: Bootstrap в связке с Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
+       
+        <!-- GetButton.io widget -->
+        <script type="text/javascript">
+            (function () {
+                var options = {
+                    whatsapp: "+7(940) 737-17-17", // WhatsApp number
+                    email: "yug_realty_abkhazia@mail.ru", // Email
+                    call_to_action: "Отправьте нам сообщение", // Call to action
+                    button_color: "#E74339", // Color of button
+                    position: "right", // Position may be 'right' or 'left'
+                    order: "whatsapp,email", // Order of buttons
+                    pre_filled_message: "Из сайта abh-realty.com", // WhatsApp pre-filled message
+                };
+                var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+                var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+                s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+                var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+            })();
+        </script>
+        <!-- /GetButton.io widget -->
+        
     </body>
 </html>

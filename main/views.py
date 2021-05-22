@@ -260,6 +260,13 @@ class ReviewsDetailView(View):
         return render(request, "pages/reviews_detail.html", context)
 
 
+# Все Объекты
+def objects_all(request):
+    page="objects_all"
+    postrentsale = PostRentSale.objects.all()
+    return render(request, 'pages/objects_all.html', {'postrentsale':postrentsale})
+
+
 # О компании
 def about(request):
     page="about"
