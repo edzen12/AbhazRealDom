@@ -137,7 +137,7 @@ def arenda_dom_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage.html', context)
+    return render(request, 'pages/objpage.html', context)
 
 
 # Аренда - Квартиры
@@ -146,7 +146,7 @@ def arenda_kv_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage.html', context)
+    return render(request, 'pages/objpage.html', context)
 
 
 # Аренда - Участки
@@ -155,7 +155,7 @@ def arenda_uchactky_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage.html', context)
+    return render(request, 'pages/objpage.html', context)
 
 
 # Аренда - Коммерческая недвижимость
@@ -164,7 +164,7 @@ def arenda_com_ned_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage.html', context)
+    return render(request, 'pages/objpage.html', context)
 
 
 # Продажа - Дома
@@ -173,7 +173,7 @@ def sale_dom_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage.html', context)
+    return render(request, 'pages/objpage.html', context)
 
 
 # Продажа - Квартиры
@@ -182,7 +182,7 @@ def sale_kv_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage.html', context)
+    return render(request, 'pages/objpage.html', context)
 
 
 # Продажа - Участки
@@ -191,7 +191,7 @@ def sale_uchactky_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage.html', context)
+    return render(request, 'pages/objpage.html', context)
 
 
 # Продажа - Коммерческая недвижимость
@@ -200,7 +200,7 @@ def sale_com_ned_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage.html', context)
+    return render(request, 'pages/objpage.html', context)
 
 
 # Дома
@@ -209,7 +209,7 @@ def dom_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage_all.html', context)
+    return render(request, 'pages/objpage_all.html', context)
 
 
 # Квартиры
@@ -218,7 +218,7 @@ def kv_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage_all.html', context)
+    return render(request, 'pages/objpage_all.html', context)
 
 
 # Участки
@@ -227,7 +227,7 @@ def uchactky_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage_all.html', context)
+    return render(request, 'pages/objpage_all.html', context)
 
 
 # Коммерческая недвижимость
@@ -236,7 +236,7 @@ def com_ned_page(request):
     context = {
         'postrentsale': postrentsale
     }
-    return render(request, 'objpage_all.html', context)
+    return render(request, 'pages/objpage_all.html', context)
 
 
 # Отзывы
