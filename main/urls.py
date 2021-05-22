@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from .views import (
-    index, reviews, about, projects,
+    index, reviews, about, projects, services, want_sell,
     ReviewsDetailView, PostRentSaleDetailView,
     arenda_dom_page, arenda_kv_page, arenda_uchactky_page, arenda_com_ned_page,
     sale_dom_page, sale_kv_page, sale_uchactky_page, sale_com_ned_page,
@@ -15,6 +15,8 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('projects/', projects, name='projects'),
     path('reviews/', reviews, name='reviews'),
+    path('services/', services, name='services'),
+    path('want-sell/', want_sell, name='want_sell'),
 
     path('arenda-dom-page/', arenda_dom_page, name='arenda_dom_page'),
     path('arenda-kv-page/', arenda_kv_page, name='arenda_kv_page'),

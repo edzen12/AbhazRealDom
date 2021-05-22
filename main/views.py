@@ -266,6 +266,18 @@ def about(request):
     return render(request, 'pages/about.html')
 
 
+# Услуги
+def services(request):
+    page="services"
+    return render(request, 'pages/services.html')
+
+
+# ХОЧУ ПРОДАТЬ
+def want_sell(request):
+    page="want_sell"
+    return render(request, 'pages/want_sell.html')
+
+
 # Проекты
 def projects(request):
     page="projects"

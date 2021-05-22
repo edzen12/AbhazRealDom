@@ -27,12 +27,18 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{% url 'services' %}"
+                                {% if request.get_full_path == '/services/' %}style="color:white;" {% endif %}>
+                                    Услуги
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{% url 'reviews' %}"
                                 {% if request.get_full_path == '/reviews/' %} style="color:white;" {% endif %}>
                                     Отзывы о нас
                                 </a>
                             </li>
-                            <li><a href="tel:+7 (940) 000-00-00" class="red">ХОЧУ ПРОДАТЬ</a></li>
+                            <li><a href="{% url 'want_sell' %}" class="red">ХОЧУ ПРОДАТЬ</a></li>
                         </ul>
                     </nav>
                 </div>

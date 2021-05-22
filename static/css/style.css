@@ -1,6 +1,10 @@
 body{
 
 }
+.want_sell label{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 button{
   border-width:0px;
 }
