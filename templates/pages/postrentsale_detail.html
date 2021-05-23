@@ -10,7 +10,7 @@
         <h2>{{postrentsale.title}} {% if postrentsale.areas %} , {{postrentsale.areas}} м² {% endif %}<span>#{{postrentsale.id}}</span></h2>
         <div class="row">
             
-            {% if postrentsale.imageshots %}
+            {% if postrentsale.imageshots_set.all %}
 
             <!-- image carousel -->
             <div class="col-md-6">

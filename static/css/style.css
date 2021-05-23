@@ -1,10 +1,13 @@
 body{
 
 }
+
+/* Мои */
 .want_sell label{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+/* Мои */
 button{
   border-width:0px;
 }
