@@ -1,0 +1,16 @@
+{% load contact_tags %}
+<form action="{% url 'contact' %}" 
+      id="contact-form" method="post" 
+      onSubmit="return confirm('Отправить сообщение ?');">
+    
+      {% csrf_token %}
+    
+    <div class="form-group">
+    
+        {{ contact_form }}
+    
+    </div>
+    
+    <button class="btn btn-primary btn-lg btn-block mt-3" type="submit">Отправить</button>
+
+</form>
