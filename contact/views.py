@@ -13,7 +13,7 @@ class ContactView(CreateView):
 
     def form_valid(self, form):
         form.save()
-        send_info(
+        send_info.delay(
             form.instance.type_property,
             form.instance.own,
             form.instance.city,
