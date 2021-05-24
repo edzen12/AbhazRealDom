@@ -12,64 +12,74 @@
             
             {% if postrentsale.imageshots_set.all %}
 
-            <!-- image carousel -->
-            <div class="col-md-6">
-                <div class="swiper-container gallery-top" uk-lightbox>
-                    <div class="swiper-wrapper">
+                <!-- image carousel -->
+                <div class="col-md-6">
+                    <div class="swiper-container gallery-top" uk-lightbox>
+                        <div class="swiper-wrapper">
 
 
-                        {% for image in postrentsale.imageshots_set.all %}
+                            {% for image in postrentsale.imageshots_set.all %}
 
-                        <div class="swiper-slide">
-                            <div class="swiper-slide-container">
-                                <a class="uk-button uk-button-primary" href="{{image.image.url}}">
-                                    <img src="{{image.image.url}}">
-                                </a>
+                            <div class="swiper-slide">
+                                <div class="swiper-slide-container">
+                                    <a class="uk-button uk-button-primary" href="{{image.image.url}}">
+                                        <img src="{{image.image.url}}">
+                                    </a>
+                                </div>
                             </div>
+
+                            {% endfor %}
+
                         </div>
-
-                        {% endfor %}
-
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"><img src="{% static 'img/svg/next.png' %}"></div>
+                        <div class="swiper-button-prev"><img src="{% static 'img/svg/back.png' %}"></div>
                     </div>
-                    <!-- Add Arrows -->
-                    <div class="swiper-button-next"><img src="{% static 'img/svg/next.png' %}"></div>
-                    <div class="swiper-button-prev"><img src="{% static 'img/svg/back.png' %}"></div>
-                </div>
-                <div class="swiper-container gallery-thumbs">
-                    <div class="swiper-wrapper">
-                        {% for image in postrentsale.imageshots_set.all %}
-                        <div class="swiper-slide">
-                            <div class="swiper-slide-container"><img src="{{image.image.url}}"></div>
+                    <div class="swiper-container gallery-thumbs">
+                        <div class="swiper-wrapper">
+                            {% for image in postrentsale.imageshots_set.all %}
+                            <div class="swiper-slide">
+                                <div class="swiper-slide-container"><img src="{{image.image.url}}"></div>
+                            </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
+                    </div>
+                    <script type="text/javascript">
+                        var galleryTop = new Swiper('.gallery-top', {
+                        spaceBetween: 10,
+                        effect: 'fade',
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        loop: true,
+                        loopedSlides: 4
+                        });
+                        var galleryThumbs = new Swiper('.gallery-thumbs', {
+                        spaceBetween: 10,
+
+                        slidesPerView: 4,
+                        touchRatio: 0.2,
+                        slideToClickedSlide: true,
+                        loop: true,
+                        loopedSlides: 4
+                        });
+                        galleryTop.controller.control = galleryThumbs;
+                        galleryThumbs.controller.control = galleryTop;
+                    </script>
+                </div>
+                <!-- image carousel -->
+            {% elif not postrentsale.image %}
+            <div class="col-md-6">
+                <div class="swiper-slide">
+                    <div class="swiper-slide-container">
+                        <a class="uk-button uk-button-primary" href="{% static 'img/загружено.png' %}">
+                            <img src="{% static 'img/загружено.png' %}">
+                        </a>
                     </div>
                 </div>
-                <script type="text/javascript">
-                    var galleryTop = new Swiper('.gallery-top', {
-                       spaceBetween: 10,
-                       effect: 'fade',
-                       navigation: {
-                         nextEl: '.swiper-button-next',
-                         prevEl: '.swiper-button-prev',
-                       },
-                       loop: true,
-                       loopedSlides: 5
-                     });
-                     var galleryThumbs = new Swiper('.gallery-thumbs', {
-                       spaceBetween: 10,
-
-                       slidesPerView: 5,
-                       touchRatio: 0.2,
-                       slideToClickedSlide: true,
-                       loop: true,
-                       loopedSlides: 5
-                     });
-                     galleryTop.controller.control = galleryThumbs;
-                     galleryThumbs.controller.control = galleryTop;
-                </script>
             </div>
-            <!-- image carousel -->
-            {% elif not postrentsale.imageshots %}
+            {% else %}
             <div class="col-md-6">
                 <div class="swiper-slide">
                     <div class="swiper-slide-container">
@@ -181,7 +191,7 @@
             {% for el in rentsale %}
             <div class="col-md-3 col-lg-3 col-12">
                 <div class="objects__content">
-                  <div class="objects__content-img" style="background: url({{ el.image.url }}); background-size: cover;">
+                  <div class="objects__content-img" style="background: url({% if el.image %}{{ el.image.url }}{% else %}{% static 'img/загружено.png' %}{% endif %}); background-size: cover;">
                   <span class="objects__content-price">{{ el.price }} ₽</span>
                   </div>
                         <div class="objects__content-info">
