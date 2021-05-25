@@ -6,6 +6,14 @@
 
 {% block content %}
 
+<style>
+    .page-link{
+        color: #D82460!important;
+        padding: 10px;
+        font-family: 'Montserrat', sans-serif;
+    }
+</style>
+
 <!-- Вывод после фильтра START -->
 <section class="objects">
     <div id='container' class="container">
@@ -15,7 +23,7 @@
             {% for el in postrentsale %}
             <div class="col-md-3 col-lg-3 col-12">
                 <div class="objects__content">
-                  <div class="objects__content-img" style="background: url({{ el.image.url }}); background-size: cover;">
+                  <div class="objects__content-img" style="background: url({% if el.image %}{{ el.image.url }}{% else %}{% static 'img/загружено.png' %}{% endif %}); background-size: cover;">
                   <span class="objects__content-price">{{ el.price }} ₽</span>
                   </div>
                         <div class="objects__content-info">
@@ -48,6 +56,28 @@
             </div>
             {% endfor %}
             <!-- цикл START -->
+
+            <!-- Pagination Старт-->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination" style="justify-content: center;">
+                    {% if postrentsale.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ postrentsale.previous_page_number }}">< Назад</a>
+                        </li>
+                    {% endif %}
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            Страница {{ postrentsale.number }} из {{ postrentsale.paginator.num_pages }}
+                        </a>
+                    </li>
+                    {% if postrentsale.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ postrentsale.next_page_number }}">Вперёд ></a>
+                        </li>
+                    {% endif %}
+                    </ul>
+              </nav>
+            <!-- Pagination End-->
 
         </div>
     </div>

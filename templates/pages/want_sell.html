@@ -1,5 +1,8 @@
 {% extends 'homebase.html' %}
+
 {% load static %}
+
+{% load contact_tags %}
 
 {% block title %}ХОЧУ ПРОДАТЬ - Недвижимость в Абхазии - Мечта из надежных рук{% endblock %}
 
@@ -15,54 +18,11 @@
             </div>
 
             <div class="col-lg-10 col-md-10 col-10">
-                <form action="" method="POST">
-                    {% csrf_token %}
+                 <!-- FORM START -->
                     
-                    <div class="form-group">
-                        <label for="objects">Ваш объект</label>
-                            <select class="form-control" id="objects">
-                            <option>------</option>
-                            <option>Квартира</option>
-                            <option>Дом</option>
-                            <option>Участок</option>
-                            <option>Коммерческая недвижимость</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="city">Город\район</label>
-                            <select class="form-control" id="city">
-                            <option>------</option>
-                            <option>Москва</option>
-                            <option>Санкт-Петербург</option>
-                            <option>Абхазбург</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="areas">Площадь кв\м, сотки</label>
-                        <input type="text" class="form-control" id="areas" placeholder="Например: 60м²; 40 соток">
-                    </div>
-                    <div class="form-group">
-                        <label for="floor">Этаж\этажность</label>
-                        <input type="text" class="form-control" id="floor" placeholder="Например: 7 / 11">
-                    </div>
-                    <div class="form-group">
-                        <label for="bool">Собственность\ не оформлено</label>
-                            <select class="form-control" id="bool">
-                            <option>------</option>
-                            <option>Собственность</option>
-                            <option>Не оформлено</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Цена</label>
-                        <input type="text" class="form-control" id="price" placeholder="Например: 4 000 000.00 (Валюта - рубль)">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Контактный номер телефона</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Например: +79407371717">
-                    </div>
-                    <button class="btn btn-primary btn-lg btn-block mt-3" type="submit">Отправить</button>
-                </form>
+                 {% contact_form %}
+
+                 <!-- FORM END -->
             </div>
 
         </div>

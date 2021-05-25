@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  redis:
+      image: redis:latest
+      container_name: redis
+      ports:
+        - '6379:6379'
+
+  web:
+    build: .
+    command: bash -c 'python3 manage.py makemigrations &&
+      python3 manage.py migrate &&
+      python3 manage.py runserver 0.0.0.0:8000'
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    links:
+      - redis
+    depends_on:
+      - redis
+    restart: always
+
+  celery:
+    build: .
+    volumes:
+      - .:/code
+    container_name: celery_abhaz
+    command: bash -c 'celery -A abhaz worker -l info'
+    depends_on:
+      - redis
+    restart: always

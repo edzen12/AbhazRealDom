@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.views.generic.base import View
+from django.core.paginator import Paginator
 from django.db.models import Q
 from .models import (
     City, PostRentSale, Reviews,
@@ -134,6 +135,11 @@ class PostRentSaleDetailView(View):
 # Аренда - Дома
 def arenda_dom_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='1', rent_sale='1').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -143,6 +149,11 @@ def arenda_dom_page(request):
 # Аренда - Квартиры
 def arenda_kv_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='2', rent_sale='1').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -152,6 +163,11 @@ def arenda_kv_page(request):
 # Аренда - Участки
 def arenda_uchactky_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='3', rent_sale='1').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -161,6 +177,11 @@ def arenda_uchactky_page(request):
 # Аренда - Коммерческая недвижимость
 def arenda_com_ned_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='4', rent_sale='1').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -170,6 +191,11 @@ def arenda_com_ned_page(request):
 # Продажа - Дома
 def sale_dom_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='1', rent_sale='2').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -179,6 +205,11 @@ def sale_dom_page(request):
 # Продажа - Квартиры
 def sale_kv_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='2', rent_sale='2').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -188,6 +219,11 @@ def sale_kv_page(request):
 # Продажа - Участки
 def sale_uchactky_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='3', rent_sale='2').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -197,6 +233,11 @@ def sale_uchactky_page(request):
 # Продажа - Коммерческая недвижимость
 def sale_com_ned_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='4', rent_sale='2').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -206,6 +247,11 @@ def sale_com_ned_page(request):
 # Дома
 def dom_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='1').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -215,6 +261,11 @@ def dom_page(request):
 # Квартиры
 def kv_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='2').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -224,6 +275,11 @@ def kv_page(request):
 # Участки
 def uchactky_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='3').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -233,6 +289,11 @@ def uchactky_page(request):
 # Коммерческая недвижимость
 def com_ned_page(request):
     postrentsale = PostRentSale.objects.filter(type_property='4').order_by('-id')
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    postrentsale = paginator.get_page(page_number)
+
     context = {
         'postrentsale': postrentsale
     }
@@ -262,9 +323,12 @@ class ReviewsDetailView(View):
 
 # Все Объекты
 def objects_all(request):
-    page="objects_all"
     postrentsale = PostRentSale.objects.all()
-    return render(request, 'pages/objects_all.html', {'postrentsale':postrentsale})
+    paginator = Paginator(postrentsale, 8) # Show 25 contacts per page.
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'pages/objects_all.html', {'page_obj': page_obj})
 
 
 # О компании
