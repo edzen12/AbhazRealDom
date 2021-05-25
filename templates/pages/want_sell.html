@@ -2,8 +2,6 @@
 
 {% load static %}
 
-{% load contact_tags %}
-
 {% block title %}ХОЧУ ПРОДАТЬ - Недвижимость в Абхазии - Мечта из надежных рук{% endblock %}
 
 {% block content %}
@@ -20,7 +18,19 @@
             <div class="col-lg-10 col-md-10 col-10">
                  <!-- FORM START -->
                     
-                 {% contact_form %}
+                 <form action="{%url  'contact' %}" id="contact-form" method="post">
+    
+                    {% csrf_token %}
+                  
+                  <div class="form-group">
+                  
+                      {{ form.as_p }}
+                  
+                  </div>
+                  
+                  <button class="btn btn-primary btn-lg btn-block mt-3" type="submit">Отправить</button>
+              
+              </form>
 
                  <!-- FORM END -->
             </div>

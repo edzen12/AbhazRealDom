@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import View
 from django.core.paginator import Paginator
 from django.db.models import Q
+from contact.forms import ContactForm
 from .models import (
     City, PostRentSale, Reviews,
     ImageShots, TypeProperty, RentSale
@@ -346,7 +347,8 @@ def services(request):
 # ХОЧУ ПРОДАТЬ
 def want_sell(request):
     page="want_sell"
-    return render(request, 'pages/want_sell.html')
+    form = ContactForm(request.POST)
+    return render(request, 'pages/want_sell.html', {'form':form, 'page':page})
 
 
 # Проекты
