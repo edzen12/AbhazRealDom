@@ -1,7 +1,5 @@
 {% load contact_tags %}
-<form action="{% url 'contact' %}" 
-      id="contact-form" method="post" 
-      onSubmit="return confirm('Отправить сообщение ?');">
+<form action="{%url  'contact' %}" id="contact-form" method="post">
     
       {% csrf_token %}
     

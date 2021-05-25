@@ -7,6 +7,7 @@ from abhaz.celery import app
 
 @app.task
 def send_info(type_property, own, city, areas, floor, price, number):
+    print(type_property)
     message = f"""
     Ваш объект: {type_property}
     Собственность\ Не оформлено: {own}
