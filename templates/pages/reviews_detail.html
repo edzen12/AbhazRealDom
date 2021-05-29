@@ -16,11 +16,11 @@
                     {% if reviews.image %}
                         <a class="uk-button uk-button-primary" href="{{reviews.image.url}}" target="_blank">
                             <img src="{{reviews.image.url}}">
-                        </a>        
+                        </a>
                         {% else %}
-                        <a class="uk-button uk-button-primary" href="#"></a>
+                        <a class="uk-button uk-button-primary" href="#">
                             <img src="{% static 'img/загружено.png' %}">
-                        </a> 
+                        </a>
                         {% endif %}
                 </div>
             </div>
@@ -31,6 +31,7 @@
                 <p>
                     {{reviews.date}}
                 </p>
+                <a href="../" class="reviews-back">Возврат к списку</a>
             </div>
     </div>
 </section>

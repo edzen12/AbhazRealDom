@@ -10,19 +10,19 @@
 
             {% for el in reviews %}
             <div class="col-md-3 col-lg-3 col-12 mt-5 mb-5">
-                <div class="card mt-5 mb-5">
+                <div class="card mb-5">
                 <a href="{{el.get_absolute_url}}">
                     <ul>
                         <li style="color: #f24d68; font-weight: bold; font-size: 16px;
                         font-family: initial; text-transform: capitalize;" class="reviews__name">{{el.nikname}}</li>
                     </ul>
-                    
+
                     {% if el.image %}
                         <img src="{{el.image.url}}" class="card-img-top" style="height: 250px; object-fit: cover;">
                     {% else %}
-                        <img src="{% static 'img/загружено.png' %}" class="img-thumbnail">        
+                        <img src="{% static 'img/загружено.png' %}" class="img-thumbnail">
                     {% endif %}
-      
+
                     <hr>
                     <p>{{ el.desc|truncatewords_html:10 }}</p>
                     <ul>
