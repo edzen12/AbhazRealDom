@@ -508,7 +508,14 @@ line-height: 22px;
   margin-left: 30px;
   margin-bottom: 10px;
 }
-
+.reviews-back{
+	text-decoration: none;
+	color:#D82460;
+}
+.reviews-back:hover{
+  color:#D82460;
+	text-decoration: underline;
+}
 .about {
   font-family: 'Nunito', sans-serif;
   padding: 30px 0px;

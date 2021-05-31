@@ -113,6 +113,7 @@ def index(request):
         city = City.objects.all()
         rent_sale = RentSale.objects.all()
         postrentsale = PostRentSale.objects.all().order_by('-id')[:4]
+        postrentsale_vip = PostRentSale.objects.filter(vip='Да').order_by('-id')[:8]
         type_property = TypeProperty.objects.all()
 
     page="home"
@@ -355,3 +356,7 @@ def want_sell(request):
 def projects(request):
     page="projects"
     return render(request, 'pages/projects.html')
+
+
+def error_404(request, exception):
+    return render(request, 'pages/404.html', status=404)
