@@ -63,6 +63,10 @@ def index(request):
             postrentsale = PostRentSale.objects.filter(
                 Q( price__gte=int(filter_price_first))
             )
+        if filter_price_first and filter_price_second:
+            postrentsale = PostRentSale.objects.filter(
+                Q(price__gte=int(filter_price_first), price__lte=int(filter_price_second)
+                ))
 
         # Фильтр Города
         if filter_city:
