@@ -36,117 +36,119 @@ def index(request):
         if filter_type_property == 'Не выбрано':
             filter_type_property = False
 
-        # Фильтр Площади
-        if filter_price_first and filter_price_second:
-            postrentsale = PostRentSale.objects.filter(
-                Q(price__gte=int(filter_price_first), price__lte=int(filter_price_second))
-            )
-        if filter_area_first and filter_area_second:
-            postrentsale = PostRentSale.objects.filter(
-                Q(areas__gte=int(filter_area_first), areas__lte=int(filter_area_second))
-            )
+
+        ### Фильтр Площади ###
+
+        # первая площадь
         if filter_area_first:
             postrentsale = PostRentSale.objects.filter(
                 Q(areas__gte=int(filter_area_first))
             )
+        # вторая площадь
         if filter_area_second:
             postrentsale = PostRentSale.objects.filter(
                 Q(areas__lte=int(filter_area_second))
             )
+        # первая площадь и вторая площадь
+        if filter_area_first and filter_area_second:
+            postrentsale = PostRentSale.objects.filter(
+                Q(areas__gte=int(filter_area_first), price__lte=int(filter_area_second))
+            )
+        # первая площадь и первая цена
+        if filter_area_first and filter_price_first:
+            postrentsale = PostRentSale.objects.filter(
+                Q(areas__gte=int(filter_area_first), price__lte=int(filter_price_first))
+            )
+        # первая площадь и вторая цена
+        if filter_area_first and filter_price_second:
+            postrentsale = PostRentSale.objects.filter(
+                Q(areas__gte=int(filter_area_first), price__lte=int(filter_price_second))
+            )
+        # вторая площадь и первая цена
+        if filter_area_second and filter_price_first:
+            postrentsale = PostRentSale.objects.filter(
+                Q(areas__lte=int(filter_area_second), price__gte=int(filter_price_first))
+            )
+        # вторая площадь и вторая цена
+        if filter_area_second and filter_price_second:
+            postrentsale = PostRentSale.objects.filter(
+                Q(areas__lte=int(filter_area_second), price__lte=int(filter_price_second))
+            )
+        # первая площадь и вторая площадь и первая цена
+        if filter_area_first and filter_area_second and filter_price_first:
+            postrentsale = PostRentSale.objects.filter(
+                Q(areas__gte=int(filter_area_first), areas__lte=int(filter_area_second), price__gte=int(filter_price_first))
+            )
+        # первая площадь и вторая площадь и вторая цена
+        if filter_area_first and filter_area_second and filter_price_second:
+            postrentsale = PostRentSale.objects.filter(
+                Q(areas__gte=int(filter_area_first), areas__lte=int(filter_area_second), price__lte=int(filter_price_second))
+            )
+        # Фильтр Аренда/Продажа и вторая площадь
+        if filter_rent_sale and filter_area_second:
+            postrentsale = PostRentSale.objects.filter(
+                Q(rent_sale=filter_rent_sale, areas__lte=int(filter_area_second))
+            )
 
-        # Фильтр Цены
+        ### Фильтр Цены ###
+
+        # вторая цена
         if filter_price_second:
             postrentsale = PostRentSale.objects.filter(
                 Q(price__lte=int(filter_price_second))
             )
+        # первая цена
         if filter_price_first:
             postrentsale = PostRentSale.objects.filter(
                 Q( price__gte=int(filter_price_first))
             )
+        # первая цена and вторая цена
         if filter_price_first and filter_price_second:
             postrentsale = PostRentSale.objects.filter(
                 Q(price__gte=int(filter_price_first), price__lte=int(filter_price_second))
             )
 
-        # Фильтр по 7 START
-        if filter_price_first and filter_price_second and filter_area_first and filter_area_second and filter_city and filter_rent_sale and filter_type_property:
-            postrentsale = PostRentSale.objects.filter(
-                Q(price__gte=int(filter_price_first), price__lte=int(filter_price_second)), 
-                Q(areas__lte=int(filter_area_second), areas__gte=int(filter_area_first)),
-                Q(city=filter_city), 
-                Q(rent_sale=filter_rent_sale),
-                Q(type_property=filter_type_property),
-            )
-        # Фильтр по 7 END
-        # Фильтр по 6 START
-        if filter_price_first and filter_price_second and filter_area_first and filter_area_second and filter_rent_sale and filter_type_property:
-            postrentsale = PostRentSale.objects.filter(
-                Q(price__gte=int(filter_price_first), price__lte=int(filter_price_second)), 
-                Q(areas__lte=int(filter_area_second), areas__gte=int(filter_area_first)), 
-                Q(rent_sale=filter_rent_sale),
-                Q(type_property=filter_type_property)
-            )
-        # Фильтр по 6 END
-        # Фильтр по 6 START
-        if filter_price_first and filter_price_second and filter_area_first and filter_area_second and filter_city and filter_type_property:
-            postrentsale = PostRentSale.objects.filter(
-                Q(price__gte=int(filter_price_first), price__lte=int(filter_price_second)), 
-                Q(areas__lte=int(filter_area_second), areas__gte=int(filter_area_first)), 
-                Q(city=filter_city),
-                Q(type_property=filter_type_property)
-            )
-        # Фильтр по 6 END
-        # Фильтр по 5 START
-        if filter_price_first and filter_price_second and filter_area_first and filter_area_second and filter_rent_sale:
-            postrentsale = PostRentSale.objects.filter(
-                Q(price__gte=int(filter_price_first), price__lte=int(filter_price_second)), 
-                Q(areas__gte=int(filter_area_first), areas__lte=int(filter_area_second)),
-                Q(rent_sale=filter_rent_sale)
-            )
-        # Фильтр по 5 END
-        # Фильтр по 5 START
-        if filter_price_first and filter_price_second and filter_area_first and filter_area_second and filter_type_property:
-            postrentsale = PostRentSale.objects.filter(
-                Q(price__gte=int(filter_price_first), price__lte=int(filter_price_second)), 
-                Q(areas__gte=int(filter_area_first), areas__lte=int(filter_area_second)),
-                Q(type_property=filter_type_property)
-            )
-        # Фильтр по 5 END
-        # Фильтр по 5 START
-        if filter_price_first and filter_price_second and filter_area_first and filter_area_second and filter_city:
-            postrentsale = PostRentSale.objects.filter(
-                Q(price__gte=int(filter_price_first), price__lte=int(filter_price_second)), 
-                Q(areas__gte=int(filter_area_first), areas__lte=int(filter_area_second)),
-                Q(city=filter_city)
-            )
-        # Фильтр по 5 END
+        ### Фильтр Города ###
 
-        # Фильтр Города
+        # фильтр города
         if filter_city:
             postrentsale = PostRentSale.objects.filter(
                 Q(city=filter_city)
             )
-        # Фильтр Города \\ Аренда/Продажа
+        # Фильтр Города и Аренда/Продажа
         if filter_city and filter_rent_sale:
             postrentsale = PostRentSale.objects.filter(
                 Q(city=filter_city), Q(rent_sale=filter_rent_sale)
             )
-        # Фильтр Города \\ Аренда/Продажа \\ Тип Недвижимости
+        # Фильтр Города и Тип Недвижимости
+        if filter_city and filter_type_property:
+            postrentsale = PostRentSale.objects.filter(
+                Q(city=filter_city), Q(type_property=filter_type_property)
+            )
+        # Фильтр Аренда/Продажа и Тип Недвижимости
+        if filter_rent_sale and filter_type_property:
+            postrentsale = PostRentSale.objects.filter(
+                Q(rent_sale=filter_rent_sale), Q(type_property=filter_type_property)
+            )
+        # Фильтр Города и Аренда/Продажа и Тип Недвижимости
         if filter_city and filter_rent_sale and filter_type_property:
             postrentsale = PostRentSale.objects.filter(
                 Q(city=filter_city), Q(rent_sale=filter_rent_sale), Q(type_property=filter_type_property)
             )
+
+        ### Фильтр Аренда/Продажа  ###
+
         # Фильтр Аренда/Продажа
         if filter_rent_sale:
             postrentsale = PostRentSale.objects.filter(
                 Q(rent_sale=filter_rent_sale)
             )
-        # Фильтр Аренда/Продажа \\ Города
+        # Фильтр Аренда/Продажа и Города
         if filter_rent_sale and filter_city:
             postrentsale = PostRentSale.objects.filter(
                 Q(rent_sale=filter_rent_sale), Q(city=filter_city)
             )
-        # Фильтр Аренда/Продажа \\ Города \\ Тип Недвижимости
+        # Фильтр Аренда/Продажа и Города и Тип Недвижимости
         if filter_rent_sale and filter_city and filter_type_property:
             postrentsale = PostRentSale.objects.filter(
                 Q(rent_sale=filter_rent_sale), Q(city=filter_city), Q(type_property=filter_type_property)
